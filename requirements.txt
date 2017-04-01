@@ -1,0 +1,4 @@
+opencv-python
+gym
+torch
+torchvision

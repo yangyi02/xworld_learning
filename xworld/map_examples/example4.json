@@ -1,0 +1,37 @@
+{
+    "dimensions" : {
+        "height" : 3,
+        "width" : 4
+    },
+    
+    "items" : {
+        "goal" : {
+            "number" : 1,
+            "instances" : {
+                "apple_0" : [3, 1]
+            }
+        },
+
+        "block" : {
+            "number" : 8,
+            "instances" : {
+                "brick_0" : [1, 0],
+                "brick_1" : [1, 1],
+                "brick_2" : [1, 2]
+            }
+        },
+
+        "agent" : {
+            "number" : 1,
+            "instances" : {
+                "robot_0" : [0, 0]
+            }
+        },
+        
+        "dummy" : {
+            "number" : 0,
+            "instances" : {
+            }
+        }
+    }
+}

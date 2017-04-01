@@ -1,0 +1,32 @@
+{
+    "dimensions" : {
+        "height" : 5,
+        "width" : 5
+    },
+
+    "items" : {
+        "goal" : {
+            "number" : 2,
+            "instances" : {
+            },
+            "nav_train_inactive" : [
+                "banana"
+            ]
+        },
+        "agent" : {
+            "number" : 1,
+            "instances" : {
+            }
+        },
+        "block" : {
+            "number" : 2,
+            "instances" : {
+            }
+        },
+        "dummy" : {
+            "number" : 0,
+            "instances" : {
+            }
+        }
+    }
+}

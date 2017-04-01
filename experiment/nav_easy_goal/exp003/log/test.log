@@ -1,0 +1,1128 @@
+[INFO 2017-03-31 19:32:50,951 main.py:41] Namespace(batch_size=64, discount_factor=0.99, ego_centric=False, gamma=0.99, gpu_id=1, image_block_size=64, init_model='./models/final.pth', keep_command=False, learn_start=0, learning_rate=0.001, log_dir='./log', log_interval=10, map_config='empty_ground.json', max_episode_length=100, method='actor_critic', num_games=10000, opt_method='adam', pause_screen=False, render=False, replay_memory_size=100000, save_dir='./models', save_interval=1000, seed=432, show_frame=True, single_word=False, teacher_type='NAVI_GOAL', test=True, train=False, use_gpu=False, visible_radius_unit=1)
+[INFO 2017-03-31 19:32:50,951 xworld_utils.py:18] loading item list
+[INFO 2017-03-31 19:32:50,951 xworld_utils.py:26] finish loading item list
+[INFO 2017-03-31 19:32:50,951 xworld_utils.py:31] loading item images
+[INFO 2017-03-31 19:32:51,035 xworld_utils.py:42] finish loading item images
+[INFO 2017-03-31 19:32:51,035 xworld_map.py:30] loading empty_ground.json
+[INFO 2017-03-31 19:32:51,035 xworld_map.py:45] finish loading empty_ground.json
+[INFO 2017-03-31 19:32:51,050 main.py:100] testing
+/usr/local/lib/python2.7/dist-packages/matplotlib/backend_bases.py:2437: MatplotlibDeprecationWarning: Using default event loop until function specific to this GUI is implemented
+  warnings.warn(str, mplDeprecation)
+[INFO 2017-03-31 19:32:54,722 main.py:121] Episode 0	average cumulative reward: 0.47
+clf time: 0.165
+subplot 1 time: 0.045
+subplot inner state time: 0.041
+subplot complete image time: 0.039
+subplot complete inner state time: 0.040
+subplot teacher command time: 0.039
+subplot history command time: 0.037
+show time: 0.288
+clf time: 0.247
+subplot 1 time: 0.055
+subplot inner state time: 0.055
+subplot complete image time: 0.042
+subplot complete inner state time: 0.038
+subplot teacher command time: 0.037
+subplot history command time: 0.035
+show time: 0.198
+clf time: 0.202
+subplot 1 time: 0.062
+subplot inner state time: 0.067
+subplot complete image time: 0.062
+subplot complete inner state time: 0.066
+subplot teacher command time: 0.063
+subplot history command time: 0.061
+show time: 0.297
+clf time: 0.198
+subplot 1 time: 0.036
+subplot inner state time: 0.040
+subplot complete image time: 0.036
+subplot complete inner state time: 0.039
+subplot teacher command time: 0.090
+subplot history command time: 0.035
+show time: 0.201
+clf time: 0.203
+subplot 1 time: 0.039
+subplot inner state time: 0.041
+subplot complete image time: 0.045
+subplot complete inner state time: 0.043
+subplot teacher command time: 0.046
+subplot history command time: 0.039
+show time: 0.199
+clf time: 0.203
+subplot 1 time: 0.038
+subplot inner state time: 0.042
+subplot complete image time: 0.038
+subplot complete inner state time: 0.040
+subplot teacher command time: 0.037
+subplot history command time: 0.036
+show time: 0.283
+clf time: 0.199
+subplot 1 time: 0.037
+subplot inner state time: 0.098
+subplot complete image time: 0.037
+subplot complete inner state time: 0.039
+subplot teacher command time: 0.035
+subplot history command time: 0.037
+show time: 0.234
+clf time: 0.197
+subplot 1 time: 0.036
+subplot inner state time: 0.040
+subplot complete image time: 0.036
+subplot complete inner state time: 0.039
+subplot teacher command time: 0.035
+subplot history command time: 0.036
+show time: 0.278
+clf time: 0.201
+subplot 1 time: 0.036
+subplot inner state time: 0.041
+subplot complete image time: 0.036
+subplot complete inner state time: 0.039
+subplot teacher command time: 0.035
+subplot history command time: 0.036
+show time: 0.222
+clf time: 0.242
+subplot 1 time: 0.036
+subplot inner state time: 0.041
+subplot complete image time: 0.036
+subplot complete inner state time: 0.039
+subplot teacher command time: 0.035
+subplot history command time: 0.036
+show time: 0.222
+clf time: 0.201
+subplot 1 time: 0.038
+subplot inner state time: 0.038
+subplot complete image time: 0.037
+subplot complete inner state time: 0.038
+subplot teacher command time: 0.035
+subplot history command time: 0.036
+show time: 0.289
+clf time: 0.233
+subplot 1 time: 0.043
+subplot inner state time: 0.038
+subplot complete image time: 0.037
+subplot complete inner state time: 0.038
+subplot teacher command time: 0.037
+subplot history command time: 0.092
+show time: 0.232
+clf time: 0.199
+subplot 1 time: 0.041
+subplot inner state time: 0.040
+subplot complete image time: 0.039
+subplot complete inner state time: 0.038
+subplot teacher command time: 0.037
+subplot history command time: 0.035
+show time: 0.203
+clf time: 0.212
+subplot 1 time: 0.062
+subplot inner state time: 0.060
+subplot complete image time: 0.061
+subplot complete inner state time: 0.065
+subplot teacher command time: 0.071
+subplot history command time: 0.065
+show time: 0.251
+clf time: 0.200
+subplot 1 time: 0.043
+subplot inner state time: 0.042
+subplot complete image time: 0.094
+subplot complete inner state time: 0.041
+subplot teacher command time: 0.040
+subplot history command time: 0.038
+show time: 0.202
+clf time: 0.207
+subplot 1 time: 0.054
+subplot inner state time: 0.060
+subplot complete image time: 0.053
+subplot complete inner state time: 0.038
+subplot teacher command time: 0.036
+subplot history command time: 0.035
+show time: 0.227
+clf time: 0.201
+subplot 1 time: 0.051
+subplot inner state time: 0.055
+subplot complete image time: 0.050
+subplot complete inner state time: 0.043
+subplot teacher command time: 0.035
+subplot history command time: 0.035
+show time: 0.185
+clf time: 0.252
+subplot 1 time: 0.038
+subplot inner state time: 0.041
+subplot complete image time: 0.038
+subplot complete inner state time: 0.041
+subplot teacher command time: 0.037
+subplot history command time: 0.038
+show time: 0.189
+clf time: 0.200
+subplot 1 time: 0.036
+subplot inner state time: 0.039
+subplot complete image time: 0.036
+subplot complete inner state time: 0.039
+subplot teacher command time: 0.035
+subplot history command time: 0.036
+show time: 0.187
+clf time: 0.200
+subplot 1 time: 0.036
+subplot inner state time: 0.039
+subplot complete image time: 0.035
+subplot complete inner state time: 0.039
+subplot teacher command time: 0.035
+subplot history command time: 0.094
+show time: 0.233
+clf time: 0.205
+subplot 1 time: 0.036
+subplot inner state time: 0.040
+subplot complete image time: 0.036
+subplot complete inner state time: 0.040
+subplot teacher command time: 0.035
+subplot history command time: 0.037
+show time: 0.191
+clf time: 0.199
+subplot 1 time: 0.039
+subplot inner state time: 0.038
+subplot complete image time: 0.037
+subplot complete inner state time: 0.038
+subplot teacher command time: 0.035
+subplot history command time: 0.036
+show time: 0.215
+clf time: 0.199
+subplot 1 time: 0.038
+subplot inner state time: 0.038
+subplot complete image time: 0.039
+subplot complete inner state time: 0.101
+subplot teacher command time: 0.039
+subplot history command time: 0.040
+show time: 0.196
+clf time: 0.213
+subplot 1 time: 0.039
+subplot inner state time: 0.039
+subplot complete image time: 0.053
+subplot complete inner state time: 0.061
+subplot teacher command time: 0.058
+subplot history command time: 0.056
+show time: 0.270
+clf time: 0.198
+subplot 1 time: 0.039
+subplot inner state time: 0.038
+subplot complete image time: 0.037
+subplot complete inner state time: 0.038
+subplot teacher command time: 0.036
+subplot history command time: 0.035
+show time: 0.184
+clf time: 0.197
+subplot 1 time: 0.091
+subplot inner state time: 0.038
+subplot complete image time: 0.041
+subplot complete inner state time: 0.052
+subplot teacher command time: 0.060
+subplot history command time: 0.057
+show time: 0.207
+clf time: 0.201
+subplot 1 time: 0.039
+subplot inner state time: 0.042
+subplot complete image time: 0.038
+subplot complete inner state time: 0.040
+subplot teacher command time: 0.039
+subplot history command time: 0.037
+show time: 0.205
+clf time: 0.204
+subplot 1 time: 0.038
+subplot inner state time: 0.041
+subplot complete image time: 0.039
+subplot complete inner state time: 0.039
+subplot teacher command time: 0.037
+subplot history command time: 0.038
+show time: 0.250
+clf time: 0.198
+subplot 1 time: 0.037
+subplot inner state time: 0.040
+subplot complete image time: 0.036
+subplot complete inner state time: 0.039
+subplot teacher command time: 0.044
+subplot history command time: 0.058
+show time: 0.271
+clf time: 0.225
+subplot 1 time: 0.058
+subplot inner state time: 0.052
+subplot complete image time: 0.036
+subplot complete inner state time: 0.040
+subplot teacher command time: 0.035
+subplot history command time: 0.035
+show time: 0.186
+clf time: 0.196
+subplot 1 time: 0.036
+subplot inner state time: 0.040
+subplot complete image time: 0.036
+subplot complete inner state time: 0.097
+subplot teacher command time: 0.035
+subplot history command time: 0.035
+show time: 0.250
+clf time: 0.233
+subplot 1 time: 0.057
+subplot inner state time: 0.060
+subplot complete image time: 0.053
+subplot complete inner state time: 0.061
+subplot teacher command time: 0.049
+subplot history command time: 0.035
+show time: 0.185
+clf time: 0.188
+subplot 1 time: 0.037
+subplot inner state time: 0.040
+subplot complete image time: 0.036
+subplot complete inner state time: 0.039
+subplot teacher command time: 0.035
+subplot history command time: 0.036
+show time: 0.184
+clf time: 0.196
+subplot 1 time: 0.036
+subplot inner state time: 0.092
+subplot complete image time: 0.036
+subplot complete inner state time: 0.039
+subplot teacher command time: 0.035
+subplot history command time: 0.036
+show time: 0.205
+clf time: 0.274
+subplot 1 time: 0.064
+subplot inner state time: 0.077
+subplot complete image time: 0.062
+subplot complete inner state time: 0.076
+subplot teacher command time: 0.047
+subplot history command time: 0.037
+show time: 0.221
+clf time: 0.183
+subplot 1 time: 0.041
+subplot inner state time: 0.038
+subplot complete image time: 0.037
+subplot complete inner state time: 0.038
+subplot teacher command time: 0.035
+subplot history command time: 0.036
+show time: 0.229
+clf time: 0.249
+subplot 1 time: 0.039
+subplot inner state time: 0.039
+subplot complete image time: 0.038
+subplot complete inner state time: 0.039
+subplot teacher command time: 0.035
+subplot history command time: 0.037
+show time: 0.222
+clf time: 0.195
+subplot 1 time: 0.039
+subplot inner state time: 0.038
+subplot complete image time: 0.037
+subplot complete inner state time: 0.038
+subplot teacher command time: 0.036
+subplot history command time: 0.035
+show time: 0.223
+clf time: 0.196
+subplot 1 time: 0.040
+subplot inner state time: 0.040
+subplot complete image time: 0.040
+subplot complete inner state time: 0.039
+subplot teacher command time: 0.099
+subplot history command time: 0.037
+show time: 0.273
+clf time: 0.199
+subplot 1 time: 0.039
+subplot inner state time: 0.038
+subplot complete image time: 0.038
+subplot complete inner state time: 0.038
+subplot teacher command time: 0.036
+subplot history command time: 0.035
+show time: 0.224
+clf time: 0.196
+subplot 1 time: 0.039
+subplot inner state time: 0.038
+subplot complete image time: 0.037
+subplot complete inner state time: 0.038
+subplot teacher command time: 0.038
+subplot history command time: 0.036
+show time: 0.206
+clf time: 0.245
+subplot 1 time: 0.037
+subplot inner state time: 0.040
+subplot complete image time: 0.091
+subplot complete inner state time: 0.038
+subplot teacher command time: 0.037
+subplot history command time: 0.035
+show time: 0.185
+clf time: 0.190
+subplot 1 time: 0.037
+subplot inner state time: 0.039
+subplot complete image time: 0.036
+subplot complete inner state time: 0.038
+subplot teacher command time: 0.036
+subplot history command time: 0.035
+show time: 0.184
+clf time: 0.209
+subplot 1 time: 0.036
+subplot inner state time: 0.039
+subplot complete image time: 0.036
+subplot complete inner state time: 0.039
+subplot teacher command time: 0.035
+subplot history command time: 0.035
+show time: 0.189
+clf time: 0.249
+subplot 1 time: 0.036
+subplot inner state time: 0.040
+subplot complete image time: 0.037
+subplot complete inner state time: 0.039
+subplot teacher command time: 0.035
+subplot history command time: 0.036
+show time: 0.184
+clf time: 0.196
+subplot 1 time: 0.036
+subplot inner state time: 0.040
+subplot complete image time: 0.036
+subplot complete inner state time: 0.040
+subplot teacher command time: 0.035
+subplot history command time: 0.036
+show time: 0.185
+clf time: 0.197
+subplot 1 time: 0.037
+subplot inner state time: 0.040
+subplot complete image time: 0.036
+subplot complete inner state time: 0.040
+subplot teacher command time: 0.035
+subplot history command time: 0.095
+show time: 0.184
+clf time: 0.197
+subplot 1 time: 0.036
+subplot inner state time: 0.040
+subplot complete image time: 0.036
+subplot complete inner state time: 0.039
+subplot teacher command time: 0.035
+subplot history command time: 0.036
+show time: 0.184
+clf time: 0.196
+subplot 1 time: 0.039
+subplot inner state time: 0.038
+subplot complete image time: 0.037
+subplot complete inner state time: 0.038
+subplot teacher command time: 0.035
+subplot history command time: 0.036
+show time: 0.237
+clf time: 0.197
+subplot 1 time: 0.038
+subplot inner state time: 0.038
+subplot complete image time: 0.037
+subplot complete inner state time: 0.093
+subplot teacher command time: 0.035
+subplot history command time: 0.036
+show time: 0.181
+clf time: 0.196
+subplot 1 time: 0.054
+subplot inner state time: 0.053
+subplot complete image time: 0.052
+subplot complete inner state time: 0.043
+subplot teacher command time: 0.036
+subplot history command time: 0.035
+show time: 0.182
+clf time: 0.197
+subplot 1 time: 0.039
+subplot inner state time: 0.038
+subplot complete image time: 0.038
+subplot complete inner state time: 0.040
+subplot teacher command time: 0.039
+subplot history command time: 0.036
+show time: 0.228
+clf time: 0.200
+subplot 1 time: 0.096
+subplot inner state time: 0.040
+subplot complete image time: 0.041
+subplot complete inner state time: 0.040
+subplot teacher command time: 0.038
+subplot history command time: 0.037
+show time: 0.197
+clf time: 0.204
+subplot 1 time: 0.039
+subplot inner state time: 0.041
+subplot complete image time: 0.038
+subplot complete inner state time: 0.039
+subplot teacher command time: 0.038
+subplot history command time: 0.036
+show time: 0.210
+clf time: 0.203
+subplot 1 time: 0.038
+subplot inner state time: 0.041
+subplot complete image time: 0.039
+subplot complete inner state time: 0.041
+subplot teacher command time: 0.037
+subplot history command time: 0.036
+show time: 0.317
+clf time: 0.244
+subplot 1 time: 0.061
+subplot inner state time: 0.062
+subplot complete image time: 0.047
+subplot complete inner state time: 0.039
+subplot teacher command time: 0.035
+subplot history command time: 0.035
+show time: 0.227
+clf time: 0.208
+subplot 1 time: 0.052
+subplot inner state time: 0.056
+subplot complete image time: 0.050
+subplot complete inner state time: 0.041
+subplot teacher command time: 0.035
+subplot history command time: 0.035
+show time: 0.184
+clf time: 0.201
+subplot 1 time: 0.061
+subplot inner state time: 0.065
+subplot complete image time: 0.059
+subplot complete inner state time: 0.131
+subplot teacher command time: 0.035
+subplot history command time: 0.035
+show time: 0.185
+clf time: 0.201
+subplot 1 time: 0.038
+subplot inner state time: 0.042
+subplot complete image time: 0.038
+subplot complete inner state time: 0.041
+subplot teacher command time: 0.038
+subplot history command time: 0.037
+show time: 0.313
+clf time: 0.206
+subplot 1 time: 0.036
+subplot inner state time: 0.039
+subplot complete image time: 0.036
+subplot complete inner state time: 0.039
+subplot teacher command time: 0.035
+subplot history command time: 0.036
+show time: 0.184
+clf time: 0.196
+subplot 1 time: 0.036
+subplot inner state time: 0.096
+subplot complete image time: 0.036
+subplot complete inner state time: 0.039
+subplot teacher command time: 0.035
+subplot history command time: 0.037
+show time: 0.188
+clf time: 0.218
+subplot 1 time: 0.052
+subplot inner state time: 0.057
+subplot complete image time: 0.049
+subplot complete inner state time: 0.040
+subplot teacher command time: 0.035
+subplot history command time: 0.037
+show time: 0.186
+clf time: 0.197
+subplot 1 time: 0.039
+subplot inner state time: 0.038
+subplot complete image time: 0.038
+subplot complete inner state time: 0.038
+subplot teacher command time: 0.036
+subplot history command time: 0.036
+show time: 0.184
+clf time: 0.256
+subplot 1 time: 0.040
+subplot inner state time: 0.038
+subplot complete image time: 0.061
+subplot complete inner state time: 0.066
+subplot teacher command time: 0.060
+subplot history command time: 0.062
+show time: 0.254
+clf time: 0.215
+subplot 1 time: 0.040
+subplot inner state time: 0.038
+subplot complete image time: 0.038
+subplot complete inner state time: 0.038
+subplot teacher command time: 0.036
+subplot history command time: 0.035
+show time: 0.225
+clf time: 0.234
+subplot 1 time: 0.042
+subplot inner state time: 0.042
+subplot complete image time: 0.040
+subplot complete inner state time: 0.039
+subplot teacher command time: 0.104
+subplot history command time: 0.037
+show time: 0.234
+clf time: 0.201
+subplot 1 time: 0.040
+subplot inner state time: 0.039
+subplot complete image time: 0.038
+subplot complete inner state time: 0.039
+subplot teacher command time: 0.037
+subplot history command time: 0.036
+show time: 0.217
+clf time: 0.201
+subplot 1 time: 0.040
+subplot inner state time: 0.038
+subplot complete image time: 0.038
+subplot complete inner state time: 0.038
+subplot teacher command time: 0.037
+subplot history command time: 0.035
+show time: 0.183
+clf time: 0.213
+subplot 1 time: 0.068
+subplot inner state time: 0.073
+subplot complete image time: 0.145
+subplot complete inner state time: 0.074
+subplot teacher command time: 0.072
+subplot history command time: 0.046
+show time: 0.189
+clf time: 0.217
+subplot 1 time: 0.037
+subplot inner state time: 0.040
+subplot complete image time: 0.036
+subplot complete inner state time: 0.040
+subplot teacher command time: 0.036
+subplot history command time: 0.035
+show time: 0.194
+clf time: 0.205
+subplot 1 time: 0.038
+subplot inner state time: 0.040
+subplot complete image time: 0.036
+subplot complete inner state time: 0.040
+subplot teacher command time: 0.036
+subplot history command time: 0.036
+show time: 0.184
+clf time: 0.246
+subplot 1 time: 0.036
+subplot inner state time: 0.040
+subplot complete image time: 0.036
+subplot complete inner state time: 0.041
+subplot teacher command time: 0.036
+subplot history command time: 0.037
+show time: 0.184
+clf time: 0.198
+subplot 1 time: 0.039
+subplot inner state time: 0.047
+subplot complete image time: 0.042
+subplot complete inner state time: 0.040
+subplot teacher command time: 0.036
+subplot history command time: 0.037
+show time: 0.190
+clf time: 0.197
+subplot 1 time: 0.037
+subplot inner state time: 0.040
+subplot complete image time: 0.036
+subplot complete inner state time: 0.041
+subplot teacher command time: 0.035
+subplot history command time: 0.099
+show time: 0.186
+clf time: 0.203
+subplot 1 time: 0.041
+subplot inner state time: 0.040
+subplot complete image time: 0.038
+subplot complete inner state time: 0.042
+subplot teacher command time: 0.037
+subplot history command time: 0.038
+show time: 0.204
+clf time: 0.201
+subplot 1 time: 0.041
+subplot inner state time: 0.041
+subplot complete image time: 0.038
+subplot complete inner state time: 0.038
+subplot teacher command time: 0.036
+subplot history command time: 0.037
+show time: 0.191
+clf time: 0.200
+subplot 1 time: 0.039
+subplot inner state time: 0.038
+subplot complete image time: 0.038
+subplot complete inner state time: 0.095
+subplot teacher command time: 0.038
+subplot history command time: 0.037
+show time: 0.186
+clf time: 0.197
+subplot 1 time: 0.043
+subplot inner state time: 0.042
+subplot complete image time: 0.041
+subplot complete inner state time: 0.041
+subplot teacher command time: 0.040
+subplot history command time: 0.039
+show time: 0.213
+clf time: 0.199
+subplot 1 time: 0.039
+subplot inner state time: 0.044
+subplot complete image time: 0.040
+subplot complete inner state time: 0.039
+subplot teacher command time: 0.037
+subplot history command time: 0.035
+show time: 0.225
+clf time: 0.208
+subplot 1 time: 0.113
+subplot inner state time: 0.038
+subplot complete image time: 0.038
+subplot complete inner state time: 0.038
+subplot teacher command time: 0.037
+subplot history command time: 0.035
+show time: 0.229
+clf time: 0.203
+subplot 1 time: 0.073
+subplot inner state time: 0.074
+subplot complete image time: 0.064
+subplot complete inner state time: 0.071
+subplot teacher command time: 0.064
+subplot history command time: 0.052
+show time: 0.214
+clf time: 0.226
+subplot 1 time: 0.036
+subplot inner state time: 0.040
+subplot complete image time: 0.036
+subplot complete inner state time: 0.039
+subplot teacher command time: 0.035
+subplot history command time: 0.035
+show time: 0.243
+clf time: 0.198
+subplot 1 time: 0.037
+subplot inner state time: 0.040
+subplot complete image time: 0.036
+subplot complete inner state time: 0.041
+subplot teacher command time: 0.035
+subplot history command time: 0.037
+show time: 0.189
+clf time: 0.228
+subplot 1 time: 0.040
+subplot inner state time: 0.047
+subplot complete image time: 0.039
+subplot complete inner state time: 0.042
+subplot teacher command time: 0.041
+subplot history command time: 0.037
+show time: 0.282
+clf time: 0.200
+subplot 1 time: 0.038
+subplot inner state time: 0.042
+subplot complete image time: 0.038
+subplot complete inner state time: 0.101
+subplot teacher command time: 0.036
+subplot history command time: 0.035
+show time: 0.233
+clf time: 0.205
+subplot 1 time: 0.038
+subplot inner state time: 0.041
+subplot complete image time: 0.037
+subplot complete inner state time: 0.040
+subplot teacher command time: 0.036
+subplot history command time: 0.036
+show time: 0.229
+clf time: 0.198
+subplot 1 time: 0.037
+subplot inner state time: 0.040
+subplot complete image time: 0.036
+subplot complete inner state time: 0.040
+subplot teacher command time: 0.036
+subplot history command time: 0.036
+show time: 0.222
+clf time: 0.197
+subplot 1 time: 0.036
+subplot inner state time: 0.102
+subplot complete image time: 0.037
+subplot complete inner state time: 0.044
+subplot teacher command time: 0.039
+subplot history command time: 0.039
+show time: 0.260
+clf time: 0.242
+subplot 1 time: 0.038
+subplot inner state time: 0.045
+subplot complete image time: 0.036
+subplot complete inner state time: 0.040
+subplot teacher command time: 0.036
+subplot history command time: 0.037
+show time: 0.256
+clf time: 0.177
+subplot 1 time: 0.040
+subplot inner state time: 0.038
+subplot complete image time: 0.038
+subplot complete inner state time: 0.048
+subplot teacher command time: 0.075
+subplot history command time: 0.060
+show time: 0.208
+clf time: 0.247
+subplot 1 time: 0.043
+subplot inner state time: 0.066
+subplot complete image time: 0.064
+subplot complete inner state time: 0.066
+subplot teacher command time: 0.061
+subplot history command time: 0.063
+show time: 0.293
+clf time: 0.242
+subplot 1 time: 0.066
+subplot inner state time: 0.041
+subplot complete image time: 0.038
+subplot complete inner state time: 0.038
+subplot teacher command time: 0.037
+subplot history command time: 0.035
+show time: 0.185
+clf time: 0.186
+subplot 1 time: 0.043
+subplot inner state time: 0.038
+subplot complete image time: 0.042
+subplot complete inner state time: 0.043
+subplot teacher command time: 0.105
+subplot history command time: 0.043
+show time: 0.232
+clf time: 0.206
+subplot 1 time: 0.040
+subplot inner state time: 0.038
+subplot complete image time: 0.037
+subplot complete inner state time: 0.038
+subplot teacher command time: 0.036
+subplot history command time: 0.035
+show time: 0.187
+clf time: 0.205
+subplot 1 time: 0.040
+subplot inner state time: 0.038
+subplot complete image time: 0.038
+subplot complete inner state time: 0.038
+subplot teacher command time: 0.036
+subplot history command time: 0.035
+show time: 0.190
+clf time: 0.210
+subplot 1 time: 0.037
+subplot inner state time: 0.042
+subplot complete image time: 0.099
+subplot complete inner state time: 0.040
+subplot teacher command time: 0.039
+subplot history command time: 0.038
+show time: 0.193
+clf time: 0.200
+subplot 1 time: 0.038
+subplot inner state time: 0.039
+subplot complete image time: 0.037
+subplot complete inner state time: 0.038
+subplot teacher command time: 0.038
+subplot history command time: 0.037
+show time: 0.190
+clf time: 0.218
+subplot 1 time: 0.038
+subplot inner state time: 0.041
+subplot complete image time: 0.038
+subplot complete inner state time: 0.041
+subplot teacher command time: 0.037
+subplot history command time: 0.036
+show time: 0.216
+clf time: 0.270
+subplot 1 time: 0.038
+subplot inner state time: 0.042
+subplot complete image time: 0.038
+subplot complete inner state time: 0.041
+subplot teacher command time: 0.037
+subplot history command time: 0.036
+show time: 0.184
+clf time: 0.192
+subplot 1 time: 0.037
+subplot inner state time: 0.040
+subplot complete image time: 0.036
+subplot complete inner state time: 0.039
+subplot teacher command time: 0.035
+subplot history command time: 0.037
+show time: 0.198
+clf time: 0.201
+subplot 1 time: 0.037
+subplot inner state time: 0.041
+subplot complete image time: 0.037
+subplot complete inner state time: 0.040
+subplot teacher command time: 0.036
+subplot history command time: 0.103
+show time: 0.213
+clf time: 0.206
+subplot 1 time: 0.039
+subplot inner state time: 0.043
+subplot complete image time: 0.038
+subplot complete inner state time: 0.043
+subplot teacher command time: 0.037
+subplot history command time: 0.039
+show time: 0.192
+clf time: 0.201
+subplot 1 time: 0.040
+subplot inner state time: 0.041
+subplot complete image time: 0.040
+subplot complete inner state time: 0.040
+subplot teacher command time: 0.036
+subplot history command time: 0.036
+show time: 0.231
+clf time: 0.248
+subplot 1 time: 0.060
+subplot inner state time: 0.060
+subplot complete image time: 0.059
+subplot complete inner state time: 0.108
+subplot teacher command time: 0.036
+subplot history command time: 0.036
+show time: 0.184
+clf time: 0.192
+subplot 1 time: 0.040
+subplot inner state time: 0.042
+subplot complete image time: 0.040
+subplot complete inner state ti[INFO 2017-03-31 19:34:06,724 main.py:121] Episode 10	average cumulative reward: -2.35
+me: 0.040
+subplot teacher command time: 0.037
+subplot history command time: 0.035
+show time: 0.206
+clf time: 0.197
+subplot 1 time: 0.040
+subplot inner state time: 0.039
+subplot complete image time: 0.038
+subplot complete inner state time: 0.038
+subplot teacher command time: 0.037
+subplot history command time: 0.035
+show time: 0.184
+clf time: 0.223
+subplot 1 time: 0.098
+subplot inner state time: 0.040
+subplot complete image time: 0.038
+subplot complete inner state time: 0.038
+subplot teacher command time: 0.037
+subplot history command time: 0.035
+show time: 0.187
+clf time: 0.205
+subplot 1 time: 0.069
+subplot inner state time: 0.075
+subplot complete image time: 0.070
+subplot complete inner state time: 0.071
+subplot teacher command time: 0.072
+subplot history command time: 0.036
+show time: 0.188
+clf time: 0.200
+subplot 1 time: 0.039
+subplot inner state time: 0.042
+subplot complete image time: 0.038
+subplot complete inner state time: 0.041
+subplot teacher command time: 0.037
+subplot history command time: 0.036
+show time: 0.272
+clf time: 0.190
+subplot 1 time: 0.036
+subplot inner state time: 0.040
+subplot complete image time: 0.036
+subplot complete inner state time: 0.039
+subplot teacher command time: 0.035
+subplot history command time: 0.036
+show time: 0.208
+clf time: 0.201
+subplot 1 time: 0.037
+subplot inner state time: 0.040
+subplot complete image time: 0.037
+subplot complete inner state time: 0.039
+subplot teacher command time: 0.036
+subplot history command time: 0.035
+show time: 0.185
+clf time: 0.197
+subplot 1 time: 0.036
+subplot inner state time: 0.039
+subplot complete image time: 0.036
+subplot complete inner state time: 0.099
+subplot teacher command time: 0.035
+subplot history command time: 0.035
+show time: 0.185
+clf time: 0.224
+subplot 1 time: 0.038
+subplot inner state time: 0.042
+subplot complete image time: 0.037
+subplot complete inner state time: 0.041
+subplot teacher command time: 0.037
+subplot history command time: 0.038
+show time: 0.266
+clf time: 0.253
+subplot 1 time: 0.069
+subplot inner state time: 0.076
+subplot complete image time: 0.050
+subplot complete inner state time: 0.039
+subplot teacher command time: 0.035
+subplot history command time: 0.037
+show time: 0.222
+clf time: 0.201
+subplot 1 time: 0.036
+subplot inner state time: 0.095
+subplot complete image time: 0.036
+subplot complete inner state time: 0.040
+subplot teacher command time: 0.035
+subplot history command time: 0.037
+show time: 0.203
+clf time: 0.202
+subplot 1 time: 0.038
+subplot inner state time: 0.042
+subplot complete image time: 0.037
+subplot complete inner state time: 0.040
+subplot teacher command time: 0.035
+subplot history command time: 0.037
+show time: 0.185
+clf time: 0.199
+subplot 1 time: 0.042
+subplot inner state time: 0.040
+subplot complete image time: 0.039
+subplot complete inner state time: 0.041
+subplot teacher command time: 0.038
+subplot history command time: 0.038
+show time: 0.190
+clf time: 0.250
+subplot 1 time: 0.041
+subplot inner state time: 0.040
+subplot complete image time: 0.040
+subplot complete inner state time: 0.040
+subplot teacher command time: 0.038
+subplot history command time: 0.039
+show time: 0.197
+clf time: 0.255
+subplot 1 time: 0.039
+subplot inner state time: 0.038
+subplot complete image time: 0.037
+subplot complete inner state time: 0.038
+subplot teacher command time: 0.036
+subplot history command time: 0.035
+show time: 0.324
+clf time: 0.198
+subplot 1 time: 0.040
+subplot inner state time: 0.038
+subplot complete image time: 0.038
+subplot complete inner state time: 0.038
+subplot teacher command time: 0.100
+subplot history command time: 0.036
+show time: 0.337
+clf time: 0.203
+subplot 1 time: 0.040
+subplot inner state time: 0.038
+subplot complete image time: 0.038
+subplot complete inner state time: 0.038
+subplot teacher command time: 0.037
+subplot history command time: 0.035
+show time: 0.183
+clf time: 0.207
+subplot 1 time: 0.044
+subplot inner state time: 0.050
+subplot complete image time: 0.043
+subplot complete inner state time: 0.040
+subplot teacher command time: 0.038
+subplot history command time: 0.036
+show time: 0.241
+clf time: 0.202
+subplot 1 time: 0.037
+subplot inner state time: 0.064
+subplot complete image time: 0.130
+subplot complete inner state time: 0.061
+subplot teacher command time: 0.058
+subplot history command time: 0.056
+show time: 0.307
+clf time: 0.245
+subplot 1 time: 0.064
+subplot inner state time: 0.068
+subplot complete image time: 0.062
+subplot complete inner state time: 0.065
+subplot teacher command time: 0.060
+subplot history command time: 0.056
+show time: 0.198
+clf time: 0.209
+subplot 1 time: 0.040
+subplot inner state time: 0.042
+subplot complete image time: 0.039
+subplot complete inner state time: 0.043
+subplot teacher command time: 0.037
+subplot history command time: 0.037
+show time: 0.202
+clf time: 0.313
+subplot 1 time: 0.061
+subplot inner state time: 0.060
+subplot complete image time: 0.036
+subplot complete inner state time: 0.039
+subplot teacher command time: 0.035
+subplot history command time: 0.037
+show time: 0.185
+clf time: 0.207
+subplot 1 time: 0.038
+subplot inner state time: 0.040
+subplot complete image time: 0.036
+subplot complete inner state time: 0.040
+subplot teacher command time: 0.035
+subplot history command time: 0.036
+show time: 0.188
+clf time: 0.212
+subplot 1 time: 0.037
+subplot inner state time: 0.042
+subplot complete image time: 0.038
+subplot complete inner state time: 0.041
+subplot teacher command time: 0.037
+subplot history command time: 0.099
+show time: 0.190
+clf time: 0.197
+subplot 1 time: 0.038
+subplot inner state time: 0.043
+subplot complete image time: 0.038
+subplot complete inner state time: 0.041
+subplot teacher command time: 0.040
+subplot history command time: 0.039
+show time: 0.211
+clf time: 0.200
+subplot 1 time: 0.040
+subplot inner state time: 0.039
+subplot complete image time: 0.038
+subplot complete inner state time: 0.038
+subplot teacher command time: 0.036
+subplot history command time: 0.037
+show time: 0.188
+clf time: 0.197
+subplot 1 time: 0.039
+subplot inner state time: 0.038
+subplot complete image time: 0.038
+subplot complete inner state time: 0.097
+subplot teacher command time: 0.035
+subplot history command time: 0.036
+show time: 0.185
+clf time: 0.195
+subplot 1 time: 0.039
+subplot inner state time: 0.038
+subplot complete image time: 0.037
+subplot complete inner state time: 0.038
+subplot teacher command time: 0.036
+subplot history command time: 0.036
+show time: 0.246
+clf time: 0.204
+subplot 1 time: 0.045
+subplot inner state time: 0.040
+subplot complete image time: 0.039
+subplot complete inner state time: 0.041
+subplot teacher command time: 0.038
+subplot history command time: 0.037
+show time: 0.208
+clf time: 0.203
+subplot 1 time: 0.100
+subplot inner state time: 0.040
+subplot complete image time: 0.039
+subplot complete inner state time: 0.042
+subplot teacher command time: 0.039
+subplot history command time: 0.037
+show time: 0.234
+clf time: 0.229
+subplot 1 time: 0.037
+subplot inner state time: 0.066
+subplot complete image time: 0.061
+subplot complete inner state time: 0.043
+subplot teacher command time: 0.037
+subplot history command time: 0.035
+show time: 0.211
+clf time: 0.204
+subplot 1 time: 0.039
+subplot inner state time: 0.041
+subplot complete image time: 0.037
+subplot complete inner state time: 0.039
+subplot teacher command time: 0.035
+subplot history command time: 0.035
+show time: 0.243
+clf time: 0.206
+subplot 1 time: 0.059
+subplot inner state time: 0.063
+subplot complete image time: 0.041
+subplot complete inner state time: 0.051
+subplot teacher command time: 0.055
+subplot history command time: 0.037
+show time: 0.213
+clf time: 0.226
+subplot 1 time: 0.057
+subplot inner state time: 0.055
+subplot complete image time: 0.039
+subplot complete inner state time: 0.041
+subplot teacher command time: 0.037
+subplot history command time: 0.035
+show time: 0.182
+clf time: 0.229
+subplot 1 time: 0.057
+subplot inner state time: 0.049
+subplot complete image time: 0.055
+subplot complete inner state time: 0.144
+subplot teacher command time: 0.038
+subplot history command time: 0.038
+show time: 0.281
+clf time: 0.223
+subplot 1 time: 0.038
+subplot inner state time: 0.042
+subplot complete image time: 0.03

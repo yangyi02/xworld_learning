@@ -1,0 +1,35 @@
+{
+ "goal" : {
+    "apple" : 3,
+    "avocado" : 3,
+    "banana" : 2,
+    "blueberry" : 1,
+    "cabbage" : 3,
+    "cherry" : 3,
+    "coconut" : 1,
+    "cucumber" : 3,
+    "fig" : 1,
+    "grape" : 3,
+    "lemon" : 3,
+    "orange" : 2,
+    "pineapple" : 3,
+    "pumpkin" : 3,
+    "strawberry" : 3,
+    "watermelon" :3
+  },
+  "block" : {
+    "brick" : 1
+  },
+  "agent" : {
+    "robot" : 1
+  },
+  "dummy" : {
+    "dummy" : 1
+  },
+  "box" : {
+    "box" : 1
+  },
+  "river" : {
+    "river" : 1
+  }
+}

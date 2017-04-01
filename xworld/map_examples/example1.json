@@ -1,0 +1,15 @@
+{
+    "dimensions" : {
+        "height" : 7,
+        "width" : 7
+    },
+    
+    "items" : {
+        "goal" : {
+            "number" : 5
+        },
+        "agent" : {
+            "number" : 1
+        }
+    }
+}

@@ -1,0 +1,45 @@
+{
+    "dimensions" : {
+        "height" : 4,
+        "width" : 5
+    },
+    
+    "items" : {
+        "goal" : {
+            "number" : 1,
+            "instances" : {
+                "apple_0" : [3, 1]
+            }
+        },
+
+        "block" : {
+            "number" : 2,
+            "instances" : {
+                "brick_0" : [1, 0],
+                "brick_1" : [1, 1],
+                "brick_2" : [1, 2]
+            }
+        },
+
+        "agent" : {
+            "number" : 1,
+            "instances" : {
+                "robot_0" : [2, 3]
+            }
+        },
+        
+        "dummy" : {
+            "number" : 0,
+            "instances" : {
+            }
+        },
+
+        "box" : {
+            "number" : 5
+        },
+
+        "river" : {
+            "number" : 5
+        }
+    }
+}

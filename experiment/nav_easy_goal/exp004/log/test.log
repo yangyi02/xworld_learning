@@ -1,0 +1,13 @@
+[INFO 2017-04-01 15:00:12,720 main.py:43] Namespace(batch_size=64, discount_factor=0.99, ego_centric=False, gamma=0.99, gpu_id=1, image_block_size=64, init_model='./models/final.pth', keep_command=False, learn_start=0, learning_rate=0.001, log_dir='./log', log_interval=10, map_config='empty_ground.json', max_episode_length=100, method='actor_critic', num_games=10000, opt_method='adam', pause_screen=False, render=False, replay_memory_size=100000, save_dir='./models', save_interval=1000, seed=432, show_frame=False, single_word=False, teacher_type='NAVI_GOAL', test=True, train=True, use_gpu=False, visible_radius_unit=1)
+[INFO 2017-04-01 15:00:12,720 xworld_utils.py:18] loading item list
+[INFO 2017-04-01 15:00:12,720 xworld_utils.py:26] finish loading item list
+[INFO 2017-04-01 15:00:12,720 xworld_utils.py:31] loading item images
+[INFO 2017-04-01 15:00:12,790 xworld_utils.py:42] finish loading item images
+[INFO 2017-04-01 15:00:12,790 xworld_map.py:30] loading empty_ground.json
+[INFO 2017-04-01 15:00:12,791 xworld_map.py:45] finish loading empty_ground.json
+[INFO 2017-04-01 15:00:14,361 main.py:73] training
+[INFO 2017-04-01 15:00:15,040 main.py:94] Episode 0	average cumulative reward: -4.74
+[INFO 2017-04-01 15:00:15,040 main.py:99] Episode 0	saving model: 00000.pth
+[INFO 2017-04-01 15:00:17,441 main.py:94] Episode 10	average cumulative reward: -6.41
+[INFO 2017-04-01 15:00:20,285 main.py:94] Episode 20	average cumulative reward: -7.39
+[INFO 2017-04-01 15:00:22,835 main.py:94] Episode 30	average cumulative reward: -6.41
