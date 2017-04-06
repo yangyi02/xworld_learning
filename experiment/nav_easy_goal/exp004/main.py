@@ -37,7 +37,7 @@ class Network(nn.Module):
 
 def main():
     args = xworld_learning_args.parser().parse_args()
-    args.train = True
+    # args.train = True
     args.map_config = 'empty_ground.json'
     args.learning_rate = 0.001
     logging.info(args)

@@ -29,7 +29,7 @@ if [ "$TEST" -eq "0" ]; then
     python main.py --train 2>&1 | tee ./log/train.log
 else
     # testing
-    SHOW_FRAME=0
+    SHOW_FRAME=1
     NUM_GAMES=500    # for benchmarking
     INIT_MODEL="./models/final.pth"
     
