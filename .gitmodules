@@ -1,0 +1,6 @@
+[submodule "learning/pytorch-a3c"]
+	path = learning/pytorch-a3c
+	url = https://github.com/ikostrikov/pytorch-a3c.git
+[submodule "learning/doom-net-pytorch"]
+	path = learning/doom-net-pytorch
+	url = https://github.com/akolishchak/doom-net-pytorch.git

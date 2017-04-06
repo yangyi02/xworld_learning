@@ -1,0 +1,36 @@
+[INFO 2017-04-05 22:29:45,742 main.py:44] Namespace(batch_size=64, discount_factor=0.99, ego_centric=False, gamma=0.99, gpu_id=1, image_block_size=64, init_model='', keep_command=False, learn_start=0, learning_rate=0.001, log_dir='./log', log_interval=10, map_config='empty_ground.json', max_episode_length=100, method='actor_critic', num_games=10000, opt_method='adam', pause_screen=False, render=False, replay_memory_size=100000, save_dir='./models', save_interval=1000, seed=432, show_frame=False, single_word=False, teacher_type='NAVI_GOAL', test=False, train=True, use_gpu=False, visible_radius_unit=1)
+[INFO 2017-04-05 22:29:45,742 xworld_utils.py:18] loading item list
+[INFO 2017-04-05 22:29:45,742 xworld_utils.py:26] finish loading item list
+[INFO 2017-04-05 22:29:45,743 xworld_utils.py:31] loading item images
+[INFO 2017-04-05 22:29:45,812 xworld_utils.py:42] finish loading item images
+[INFO 2017-04-05 22:29:45,812 xworld_map.py:30] loading empty_ground.json
+[INFO 2017-04-05 22:29:45,812 xworld_map.py:45] finish loading empty_ground.json
+[INFO 2017-04-05 22:29:47,382 main.py:74] training
+[INFO 2017-04-05 22:29:48,016 main.py:102] Episode 0	average cumulative reward: -4.74
+[INFO 2017-04-05 22:29:48,017 main.py:103] simulation spends: 0.599
+[INFO 2017-04-05 22:29:48,017 main.py:104] training spends: 0.033
+[INFO 2017-04-05 22:29:48,017 main.py:110] Episode 0	saving model: 00000.pth
+[INFO 2017-04-05 22:29:50,410 main.py:102] Episode 10	average cumulative reward: -6.41
+[INFO 2017-04-05 22:29:50,410 main.py:103] simulation spends: 0.221
+[INFO 2017-04-05 22:29:50,410 main.py:104] training spends: 0.053
+[INFO 2017-04-05 22:29:53,273 main.py:102] Episode 20	average cumulative reward: -7.39
+[INFO 2017-04-05 22:29:53,274 main.py:103] simulation spends: 0.221
+[INFO 2017-04-05 22:29:53,274 main.py:104] training spends: 0.058
+[INFO 2017-04-05 22:29:55,737 main.py:102] Episode 30	average cumulative reward: -6.41
+[INFO 2017-04-05 22:29:55,737 main.py:103] simulation spends: 0.213
+[INFO 2017-04-05 22:29:55,737 main.py:104] training spends: 0.056
+[INFO 2017-04-05 22:29:57,671 main.py:102] Episode 40	average cumulative reward: -5.14
+[INFO 2017-04-05 22:29:57,672 main.py:103] simulation spends: 0.197
+[INFO 2017-04-05 22:29:57,672 main.py:104] training spends: 0.052
+[INFO 2017-04-05 22:30:00,677 main.py:102] Episode 50	average cumulative reward: -6.66
+[INFO 2017-04-05 22:30:00,677 main.py:103] simulation spends: 0.205
+[INFO 2017-04-05 22:30:00,677 main.py:104] training spends: 0.054
+[INFO 2017-04-05 22:30:03,025 main.py:102] Episode 60	average cumulative reward: -5.11
+[INFO 2017-04-05 22:30:03,026 main.py:103] simulation spends: 0.199
+[INFO 2017-04-05 22:30:03,026 main.py:104] training spends: 0.056
+[INFO 2017-04-05 22:30:05,173 main.py:102] Episode 70	average cumulative reward: -4.43
+[INFO 2017-04-05 22:30:05,174 main.py:103] simulation spends: 0.193
+[INFO 2017-04-05 22:30:05,174 main.py:104] training spends: 0.057
+[INFO 2017-04-05 22:30:08,720 main.py:102] Episode 80	average cumulative reward: -7.33
+[INFO 2017-04-05 22:30:08,721 main.py:103] simulation spends: 0.203
+[INFO 2017-04-05 22:30:08,721 main.py:104] training spends: 0.059
