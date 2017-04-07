@@ -46,6 +46,8 @@ def parser():
                         help='testing mode (default mode)')
     parser.add_argument('--save_interval', type=int, default=1000,
                         help='save model intervals (default: 1000)')
+    parser.add_argument('--num_processes', type=int, default=4,
+                        help='how many training processes to use (default: 4)')
 
     return parser
 
@@ -72,6 +74,7 @@ def main():
     logging.info(args.max_episode_length)
     logging.info(args.train)
     logging.info(args.test)
+    logging.info(args.num_processes)
 
 if __name__ == '__main__':
     main()

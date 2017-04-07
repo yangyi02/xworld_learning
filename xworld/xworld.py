@@ -1,3 +1,4 @@
+import numpy
 import copy
 import matplotlib.pyplot as plt
 import cv2
@@ -48,7 +49,8 @@ class XWorld(object):
         Display xworld state as well as teacher's command, language and rewards
         """
         # cv2.imshow('image', self.state.image)
-        cv2.resize(self.state.image, (50,50))
+        # cv2.resize(self.state.image, (50,50))
+        pass
 
     def display(self):
         """
@@ -149,15 +151,19 @@ def main():
                 xworld = XWorld(args)
                 for i in range(2):
                     xworld.reset()
+                    # running_time = []
                     for j in range(10):
+                        # start = time.time()
                         action = xworld.agent.random_action()
                         next_state, teacher, done = xworld.step(action)
-                        end = time.time()
-                        xworld.display()
-                        end2 = time.time()
-                        print("render time: %.3f" % (end2 - end))
+                        # end = time.time()
+                        # running_time.append(end-start)
+                        # xworld.display()
+                        # end2 = time.time()
+                        # print("render time: %.3f" % (end2 - end))
                         if done:
                             break
+                    # logging.info('average simulation time: %.3f' % numpy.mean(numpy.asarray(running_time)))
     logging.info("test world functions done")
 
 if __name__ == '__main__':
