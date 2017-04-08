@@ -1,6 +1,6 @@
 import numpy
 import random
-import xworld_args
+from . import xworld_args
 import logging
 logging.basicConfig(format='[%(levelname)s %(asctime)s %(filename)s:%(lineno)s] %(message)s',
                     level=logging.INFO)

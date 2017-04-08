@@ -1,8 +1,11 @@
 import numpy
 import random
-import xworld_utils
-import xworld_args
-from xworld_teacher import XWorldTeacher
+from . import xworld_utils
+from . import xworld_args
+from .xworld_teacher import XWorldTeacher
+import logging
+logging.basicConfig(format='[%(levelname)s %(asctime)s %(filename)s:%(lineno)s] %(message)s',
+                    level=logging.INFO)
 
 
 class XWorldTeacherNaviGoal(XWorldTeacher):
@@ -66,10 +69,10 @@ class XWorldTeacherNaviGoal(XWorldTeacher):
                 return
 
 def main():
-    print "test xworld teacher functions"
+    logging.info("test xworld teacher functions")
     args = xworld_args.parser().parse_args()
     xworld_teacher = XWorldTeacherNaviGoal(args)
-    print "test world teacher functions done"
+    logging.info("test world teacher functions done")
 
 
 if __name__ == '__main__':

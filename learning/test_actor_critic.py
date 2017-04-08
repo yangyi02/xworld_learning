@@ -9,8 +9,8 @@ import torch.optim as optim
 import torch.autograd as autograd
 from torch.autograd import Variable
 
-import learning_args
-from actor_critic import ActorCritic, Policy
+from . import learning_args
+from .actor_critic import ActorCritic, Policy
 
 
 def main():

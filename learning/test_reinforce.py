@@ -9,8 +9,8 @@ import torch.optim as optim
 import torch.autograd as autograd
 from torch.autograd import Variable
 
-import learning_args
-from reinforce import Reinforce, Policy
+from . import learning_args
+from .reinforce import Reinforce, Policy
 
 def main():
     args = learning_args.parser().parse_args()

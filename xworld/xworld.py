@@ -2,10 +2,10 @@ import numpy
 import copy
 import matplotlib.pyplot as plt
 import cv2
-import xworld_args
-import xworld_agent
-import xworld_state
-import xworld_teacher
+from . import xworld_args
+from . import xworld_agent
+from . import xworld_state
+from . import xworld_teacher
 import time
 import logging
 logging.basicConfig(format='[%(levelname)s %(asctime)s %(filename)s:%(lineno)s] %(message)s',

@@ -2,8 +2,8 @@ import copy
 import numpy
 import json
 import random
-import xworld_item
-import xworld_utils
+from . import xworld_item
+from . import xworld_utils
 import logging
 logging.basicConfig(format='[%(levelname)s %(asctime)s %(filename)s:%(lineno)s] %(message)s',
                     level=logging.INFO)
@@ -30,12 +30,14 @@ class XWorldMap(object):
         logging.info("loading %s", map_config_file)
         map_config = json.load(open(map_config_file))
         self.dim = map_config['dimensions']  # xworld map height and width
-        for item_type, item_conf in map_config['items'].iteritems():
+        #for item_type, item_conf in map_config['items'].iteritems():
+        for item_type, item_conf in map_config['items'].items():
             for i in range(item_conf['number']):
                 item = xworld_item.XWorldItem(item_type, i)
                 if 'instances' in item_conf:
                     if i < len(item_conf['instances']):
-                        item_name = item_conf['instances'].keys()[i]
+                        # item_name = item_conf['instances'].keys()[i]
+                        item_name = list(item_conf['instances'].keys())[i]
                         item_class_name = item_name.split('_')[0]
                         assert (item_class_name in self.item_list[item_type].keys())
                         item_class_id = self.item_class_id[item_class_name]
@@ -65,7 +67,8 @@ class XWorldMap(object):
         for i, item in enumerate(self.items):
             if item.name == '' or item.class_name == '':
                 item_type = item.item_type
-                item_class_name = random.choice(self.item_list[item_type].keys())
+                #item_class_name = random.choice(self.item_list[item_type].keys())
+                item_class_name = random.choice(list(self.item_list[item_type].keys()))
                 item_name = str(item_class_name) + '_' + str(item.index)
                 self.items[i].name = item_name
                 self.items[i].class_name = item_class_name

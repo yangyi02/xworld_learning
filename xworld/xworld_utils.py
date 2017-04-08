@@ -19,7 +19,8 @@ def parse_item_list(item_list_config='confs/item_list.json'):
     script_dir = os.path.dirname(__file__)  # absolute dir the script is in
     item_list = json.load(open(os.path.join(script_dir, item_list_config)))
     item_class_id, cnt = {}, 1
-    for item_type, items in item_list.iteritems():
+    # for item_type, items in item_list.iteritems():
+    for item_type, items in item_list.items():
         for item_class_name in items.keys():
             item_class_id[item_class_name] = cnt
             cnt += 1
@@ -35,7 +36,7 @@ def load_item_images(image_block_size=64, item_image_dir='images'):
     for image_file in image_files:
         if image_file.endswith('.jpg'):
             image = io.imread(os.path.join(script_dir, item_image_dir, image_file))
-            image = transform.resize(image, (image_block_size - 2, image_block_size - 2))
+            image = transform.resize(image, (image_block_size - 2, image_block_size - 2), mode='constant')
             block_image = numpy.full([image_block_size, image_block_size, 3], 0, dtype=float)
             block_image[1:image_block_size - 1, 1:image_block_size - 1, :] = image
             item_images[image_file] = block_image

@@ -1,7 +1,7 @@
 import numpy
 import random
-import xworld_utils
-import xworld_args
+from . import xworld_utils
+from . import xworld_args
 import logging
 logging.basicConfig(format='[%(levelname)s %(asctime)s %(filename)s:%(lineno)s] %(message)s',
                     level=logging.INFO)
@@ -90,7 +90,8 @@ class XWorldTeacher(object):
     def assign_reward(self, agent, state, action, next_state, num_step):
         self.update_reward(agent, state, action, next_state, num_step)
         self.reward = 0.0
-        for reward_name, reward in self.rewards.iteritems():
+        # for reward_name, reward in self.rewards.iteritems():
+        for reward_name, reward in self.rewards.items():
             self.reward += reward
 
     def update_reward(self, agent, state, action, next_state, num_step):

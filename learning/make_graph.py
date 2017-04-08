@@ -2,6 +2,7 @@
 from graphviz import Digraph
 from torch.autograd import Variable
 
+
 def save(fname, creator):
     dot = Digraph(comment='LRP',
                 node_attr={'style': 'filled', 'shape': 'box'})

@@ -1,4 +1,7 @@
+graphviz
 opencv-python
 gym
 torch
 torchvision
+scikit-image
+cv2
