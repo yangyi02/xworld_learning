@@ -1,0 +1,14 @@
+python3 test_xworld_agent.py
+python3 test_xworld_args.py
+python3 test_xworld_item.py
+python3 test_xworld_map.py
+python3 test_xworld_navi_box.py
+python3 test_xworld_navi_goal.py
+python3 test_xworld_push_box.py
+python3 test_xworld.py
+python3 test_xworld_state.py
+python3 test_xworld_teacher_navi_box.py
+python3 test_xworld_teacher_navi_goal.py
+python3 test_xworld_teacher_push_box.py
+python3 test_xworld_teacher.py
+python3 test_xworld_utils.py

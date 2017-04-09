@@ -5,12 +5,13 @@ import torch.optim as optim
 import torch.autograd as autograd
 from torch.autograd import Variable
 
-from xworld.xworld_navi_goal import XWorldNaviGoal
 import xworld_learning_args
+from xworld.xworld_navi_goal import XWorldNaviGoal
 from learning.reinforce import Reinforce, Policy
 import logging
 logging.basicConfig(format='[%(levelname)s %(asctime)s %(filename)s:%(lineno)s] %(message)s',
                     level=logging.INFO)
+
 
 def main():
     logging.info("test xworld learning functions")
