@@ -1,6 +1,4 @@
-import numpy
-import random
-from xworld import xworld_args
+from xworld import xworld_args, xworld_agent
 import logging
 logging.basicConfig(format='[%(levelname)s %(asctime)s %(filename)s:%(lineno)s] %(message)s',
                     level=logging.INFO)
@@ -9,7 +7,7 @@ logging.basicConfig(format='[%(levelname)s %(asctime)s %(filename)s:%(lineno)s] 
 def main():
     logging.info("test xworld agent functions")
     args = xworld_args.parser().parse_args()
-    agent = XWorldAgent(args)
+    agent = xworld_agent.XWorldAgent(args)
     for i in range(10):
         action = agent.random_action()
         logging.info(action)

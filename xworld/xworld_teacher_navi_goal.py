@@ -25,7 +25,7 @@ class XWorldTeacherNaviGoal(XWorldTeacher):
         The function will return all the goal locations
         """
         goal_list = []
-        for location, item_id in state.xmap.item_location_map.iteritems():
+        for location, item_id in state.xmap.item_location_map.items():
             if state.xmap.items[item_id[0]].item_type == 'goal':
                 goal_list.append(item_id[0])
         assert len(goal_list) > 0, "error: at least one goal is needed for this task"
