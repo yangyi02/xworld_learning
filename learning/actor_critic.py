@@ -6,7 +6,7 @@ import torch.nn.functional as F
 import torch.optim as optim
 import torch.autograd as autograd
 # from torch.autograd import Variable
-from .cuda import *
+from . import cuda
 import logging
 logging.basicConfig(format='[%(levelname)s %(asctime)s %(filename)s:%(lineno)s] %(message)s',
                     level=logging.INFO)
@@ -28,17 +28,20 @@ class Policy(nn.Module):
 
 SavedAction = namedtuple('SavedAction', ['action', 'value'])
 class ActorCritic(object):
-    def __init__(self, gamma, model, optimizer):
+    def __init__(self, gamma, model, optimizer=None):
         self.gamma = gamma
         self.model = model
-        self.optimizer = optimizer
+        if not optimizer:
+            self.optimizer = optim.Adam(model.parameters(), lr=1e-2)
+        else:
+            self.optimizer = optimizer
 
         self.saved_actions = []
         self.rewards = []
 
     def select_action(self, state, exploration=None):
         state = torch.from_numpy(state).float().unsqueeze(0)
-        probs, state_value = self.model(Variable(state))
+        probs, state_value = self.model(cuda.variable(state))
         action = probs.multinomial()
         self.saved_actions.append(SavedAction(action, state_value))
         return action.data
@@ -51,33 +54,17 @@ class ActorCritic(object):
         for r in self.rewards[::-1]:
             R = r + self.gamma * R
             rewards.insert(0, R)
-        rewards = torch.Tensor(rewards).cuda() if USE_CUDA else torch.Tensor(rewards)
+        rewards = torch.Tensor(rewards).cuda() if cuda.use_cuda() else torch.Tensor(rewards)
         if rewards.size()[0] > 1:
             rewards = (rewards - rewards.mean()) / (rewards.std() + numpy.finfo(numpy.float32).eps)
         for (action, value), r in zip(saved_actions, rewards):
-            action.reinforce(r - value.data[0,0])
-            value_loss += F.smooth_l1_loss(value, Variable(torch.Tensor([r])))
+            action.reinforce(r - value.data[0, 0])
+            value_loss += F.smooth_l1_loss(value, cuda.variable(torch.Tensor([r])))
         self.optimizer.zero_grad()
         final_nodes = [value_loss] + list(map(lambda p: p.action, saved_actions))
         # gradients = [torch.ones(1)] + [None] * len(saved_actions)
-        gradients = [torch.ones(1).cuda() if USE_CUDA else torch.ones(1)] + [None] * len(saved_actions)
+        gradients = [torch.ones(1).cuda() if cuda.use_cuda() else torch.ones(1)] + [None] * len(saved_actions)
         autograd.backward(final_nodes, gradients)
         self.optimizer.step()
         del self.rewards[:]
         del self.saved_actions[:]
-
-
-def main():
-    logging.info('testing actor-critic functions')
-    model = Policy(4, 128, 2)
-    optimizer = optim.Adam(model.parameters(), lr=1e-2)
-    actor_critic_model = ActorCritic(0.99, model, optimizer)
-    state = numpy.random.randn(4)
-    action = actor_critic_model.select_action(state)
-    actor_critic_model.rewards.append(1.0)
-    actor_critic_model.optimize()
-    logging.info('testing actor-critic functions done')
-
-if __name__ == '__main__':
-    main()
-

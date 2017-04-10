@@ -4,8 +4,8 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
 import torch.autograd as autograd
-#from torch.autograd import Variable
-from .cuda import *
+# from torch.autograd import Variable
+from . import cuda
 import logging
 logging.basicConfig(format='[%(levelname)s %(asctime)s %(filename)s:%(lineno)s] %(message)s',
                     level=logging.INFO)
@@ -24,17 +24,20 @@ class Policy(nn.Module):
 
 
 class Reinforce(object):
-    def __init__(self, gamma, model, optimizer):
+    def __init__(self, gamma, model, optimizer=None):
         self.gamma = gamma
         self.model = model
-        self.optimizer = optimizer
+        if not optimizer:
+            self.optimizer = optim.Adam(model.parameters(), lr=1e-2)
+        else:
+            self.optimizer = optimizer
 
         self.saved_actions = []
         self.rewards = []
 
     def select_action(self, state, exploration=None):
         state = torch.from_numpy(state).float().unsqueeze(0)
-        probs = self.model(Variable(state))
+        probs = self.model(cuda.variable(state))
         action = probs.multinomial()
         self.saved_actions.append(action)
         return action.data
@@ -58,18 +61,3 @@ class Reinforce(object):
         self.optimizer.step()
         del self.rewards[:]
         del self.saved_actions[:]
-
-
-def main():
-    logging.info('testing reinforce functions')
-    model = Policy(4, 128, 2)
-    optimizer = optim.Adam(model.parameters(), lr=1e-2)
-    reinforce_model = Reinforce(0.99, model, optimizer)
-    state = numpy.random.randn(4)
-    action = reinforce_model.select_action(state)
-    reinforce_model.rewards.append(1.0)
-    reinforce_model.optimize()
-    logging.info('testing reinforce functions done')
-
-if __name__ == '__main__':
-    main()

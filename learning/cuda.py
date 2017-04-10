@@ -1,12 +1,14 @@
 import torch
 import torch.autograd as autograd
 
-USE_CUDA = torch.cuda.is_available()
-#USE_CUDA = False
+
+def use_cuda():
+    return torch.cuda.is_available()
+    # return False
 
 
-def Variable(data, *args, **kwargs):
+def variable(data, *args, **kwargs):
     var = autograd.Variable(data, *args, **kwargs)
-    if USE_CUDA:
+    if use_cuda():
         var = var.cuda()
     return var
