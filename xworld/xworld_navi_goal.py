@@ -1,8 +1,6 @@
+import random
 from .xworld import XWorld
-from . import xworld_args
-from . import xworld_agent
-from . import xworld_state
-from . import xworld_teacher_navi_goal
+from .xworld_teacher import XWorldTeacher
 import logging
 logging.basicConfig(format='[%(levelname)s %(asctime)s %(filename)s:%(lineno)s] %(message)s',
                     level=logging.INFO)
@@ -13,32 +11,66 @@ class XWorldNaviGoal(XWorld):
     XWorld interface for xworld robot learning
     """
     def __init__(self, args):
-        self.args = args
-        self.state = xworld_state.XWorldState(args)
-        self.agent = xworld_agent.XWorldAgent(args)
-        self.teacher = xworld_teacher_navi_goal.XWorldTeacherNaviGoal(args)
-        self.num_step = 0
+        super().__init__(args)
+        self.teacher = XWorldTeacherNaviGoal(args)
 
 
-def main():
-    logging.info("test xworld navigation goal functions")
-    map_config_files = ['map_examples/example6.json']
-    ego_centrics = [False, True]
-    for map_config_file in map_config_files:
-        for ego_centric in ego_centrics:
-            args = xworld_args.parser().parse_args()
-            args.ego_centric = ego_centric
-            args.map_config = map_config_file
-            xworld_navi_goal = XWorldNaviGoal(args)
-            for i in range(2):
-                xworld_navi_goal.reset()
-                for j in range(20):
-                    action = xworld_navi_goal.agent.random_action()
-                    next_state, teacher, done = xworld_navi_goal.step(action)
-                    xworld_navi_goal.display()
-                    if done:
-                        break
-    logging.info("test world navigation goal functions done")
+class XWorldTeacherNaviGoal(XWorldTeacher):
+    """
+    XWorld reward for navigation goal task
+    """
+    def __init__(self, args):
+        super().__init__(args)
+        self.goal_locations = []
+        self.wrong_goal_locations = []
+        self.rewards['navi_goal'] = 0.0
 
-if __name__ == '__main__':
-    main()
+    def reset_command(self, state):
+        """
+        The command should contain goal name so the agent knows where to go
+        It is possible there are multiple same goals in the map
+        The function will return all the goal locations
+        """
+        goal_list = []
+        for location, item_id in state.xmap.item_location_map.items():
+            if state.xmap.items[item_id[0]].item_type == 'goal':
+                goal_list.append(item_id[0])
+        assert len(goal_list) > 0, "error: at least one goal is needed for this task"
+        goal_id = goal_list[random.randint(0, len(goal_list)-1)]
+        goal_class_name = state.xmap.items[goal_id].class_name
+        if self.args.single_word:
+            self.command = goal_class_name
+        else:
+            self.command = 'go to ' + goal_class_name
+        self.goal_locations = []
+        self.wrong_goal_locations = []
+        for goal_id in goal_list:
+            item = state.xmap.items[goal_id]
+            if item.class_name == goal_class_name:
+                self.goal_locations.append(item.location)
+            else:
+                self.wrong_goal_locations.append(item.location)
+
+    def update_reward(self, agent, state, action, next_state, num_step):
+        self.update_navi_reward(agent, state, action, next_state, num_step)
+        self.update_step_reward(agent, state, action, next_state, num_step)
+        self.update_out_border_reward(agent, state, action, next_state, num_step)
+        self.update_knock_block_reward(agent, state, action, next_state, num_step)
+
+    def update_navi_reward(self, agent, state, action, next_state, num_step):
+        """
+        The agent get positive reward when navigation reach goal
+        """
+        self.rewards['navi_goal'] = 0.0
+        agent_id = next_state.xmap.item_name_map[agent.name]
+        agent_location = next_state.xmap.items[agent_id].location
+        for goal_location in self.goal_locations:
+            if (agent_location == goal_location).all():
+                self.rewards['navi_goal'] = 1.0
+                self.done = True
+                return
+        for i in range(len(self.wrong_goal_locations)):
+            if (agent_location == self.wrong_goal_locations[i]).all():
+                self.rewards['navi_goal'] = -1.0
+                self.wrong_goal_locations.pop(i)
+                return

@@ -2,8 +2,7 @@ import copy
 import numpy
 import json
 import random
-from . import xworld_item
-from . import xworld_utils
+from . import xworld_item, xworld_utils
 import logging
 logging.basicConfig(format='[%(levelname)s %(asctime)s %(filename)s:%(lineno)s] %(message)s',
                     level=logging.INFO)
@@ -30,7 +29,6 @@ class XWorldMap(object):
         logging.info("loading %s", map_config_file)
         map_config = json.load(open(map_config_file))
         self.dim = map_config['dimensions']  # xworld map height and width
-        #for item_type, item_conf in map_config['items'].iteritems():
         for item_type, item_conf in map_config['items'].items():
             for i in range(item_conf['number']):
                 item = xworld_item.XWorldItem(item_type, i)
@@ -67,7 +65,6 @@ class XWorldMap(object):
         for i, item in enumerate(self.items):
             if item.name == '' or item.class_name == '':
                 item_type = item.item_type
-                #item_class_name = random.choice(self.item_list[item_type].keys())
                 item_class_name = random.choice(list(self.item_list[item_type].keys()))
                 item_name = str(item_class_name) + '_' + str(item.index)
                 self.items[i].name = item_name
@@ -176,26 +173,3 @@ class XWorldMap(object):
                     self.items[item_id].is_removed = True
                     break
         return True
-
-
-def main():
-    logging.info("test xworld map functions")
-    map_config_files = ['map_examples/example1.json', 'map_examples/example2.json',
-                        'map_examples/example3.json', 'map_examples/example4.json',
-                        'map_examples/example5.json']
-    for map_config_file in map_config_files:
-        xworld_map = XWorldMap(map_config_file, 8)
-        logging.info(xworld_map.item_list)
-        logging.info(xworld_map.dim)
-        logging.info(xworld_map.init_items)
-        logging.info(xworld_map.items)
-        xworld_map.reset()
-        logging.info(xworld_map.init_items)
-        logging.info(xworld_map.items)
-        logging.info(xworld_map.item_location_map)
-        logging.info(xworld_map.item_name_map)
-        xworld_map.clean()
-    logging.info("test xworld map functions done")
-
-if __name__ == '__main__':
-    main()

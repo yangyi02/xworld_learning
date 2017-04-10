@@ -1,7 +1,5 @@
-import numpy
 import random
 from . import xworld_utils
-from . import xworld_args
 import logging
 logging.basicConfig(format='[%(levelname)s %(asctime)s %(filename)s:%(lineno)s] %(message)s',
                     level=logging.INFO)
@@ -140,13 +138,3 @@ class XWorldTeacher(object):
         self.cumulative_language.append(self.language)
         self.cumulative_reward += self.cumulative_discount * self.reward
         self.cumulative_discount *= self.args.discount_factor
-
-
-def main():
-    logging.info("test xworld teacher functions")
-    args = xworld_args.parser().parse_args()
-    xworld_teacher = XWorldTeacher(args)
-    logging.info("test world teacher functions done")
-
-if __name__ == '__main__':
-    main()

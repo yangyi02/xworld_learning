@@ -71,16 +71,3 @@ class XWorldItem(object):
             return True
         else:
             return False
-
-
-def main():
-    logging.info("test xworld item functions")
-    xworld_item = XWorldItem()
-    xworld_item.location = numpy.array([1, 0])
-    logging.info(xworld_item.get_next_location(numpy.array([1, 0])))
-    xworld_item.is_movable()
-    xworld_item.to_be_removed()
-    logging.info("test xworld item functions done")
-
-if __name__ == '__main__':
-    main()

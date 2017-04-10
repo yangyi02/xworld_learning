@@ -2,10 +2,7 @@ import numpy
 import copy
 import matplotlib.pyplot as plt
 import cv2
-from . import xworld_args
-from . import xworld_agent
-from . import xworld_state
-from . import xworld_teacher
+from . import xworld_agent, xworld_state, xworld_teacher
 import time
 import logging
 logging.basicConfig(format='[%(levelname)s %(asctime)s %(filename)s:%(lineno)s] %(message)s',
@@ -127,44 +124,8 @@ class XWorld(object):
         plt.show()
         if self.args.pause_screen:
             # plt.ioff()
-            raw_input("PRESS ANY KEY TO CONTINUE.")
+            input("PRESS ANY KEY TO CONTINUE.")
         else:
             plt.pause(0.01)
         start9 = time.time()
         print('show time: %.3f' % (start9 - start8))
-
-
-def main():
-    logging.info("test xworld functions")
-    map_config_files = ['map_examples/example1.json', 'map_examples/example2.json',
-                        'map_examples/example3.json', 'map_examples/example4.json',
-                        'map_examples/example5.json']
-    ego_centrics = [False, True]
-    visible_radius_units = [0, 1]
-    for map_config_file in map_config_files:
-        for ego_centric in ego_centrics:
-            for visible_radius_unit in visible_radius_units:
-                args = xworld_args.parser().parse_args()
-                args.map_config = map_config_file
-                args.ego_centric = ego_centric
-                args.visible_radius_unit = visible_radius_unit
-                xworld = XWorld(args)
-                for i in range(2):
-                    xworld.reset()
-                    # running_time = []
-                    for j in range(10):
-                        # start = time.time()
-                        action = xworld.agent.random_action()
-                        next_state, teacher, done = xworld.step(action)
-                        # end = time.time()
-                        # running_time.append(end-start)
-                        # xworld.display()
-                        # end2 = time.time()
-                        # print("render time: %.3f" % (end2 - end))
-                        if done:
-                            break
-                    # logging.info('average simulation time: %.3f' % numpy.mean(numpy.asarray(running_time)))
-    logging.info("test world functions done")
-
-if __name__ == '__main__':
-    main()

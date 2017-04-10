@@ -1,6 +1,5 @@
 import numpy
 import random
-from . import xworld_args
 import logging
 logging.basicConfig(format='[%(levelname)s %(asctime)s %(filename)s:%(lineno)s] %(message)s',
                     level=logging.INFO)
@@ -16,6 +15,7 @@ class XWorldAgent(object):
         In the 2d xworld, navigation is a discrete action with up, down, left, right.
         speak is a continuous action that generate words.
         """
+        self.seed = None
         self.name = 'robot_0'
         self.action_type = ['up', 'down', 'left', 'right']
         self.num_actions = len(self.action_type)
@@ -36,22 +36,8 @@ class XWorldAgent(object):
 
     @staticmethod
     def get_velocity():
-        velocity = {}
-        velocity['up'] = numpy.array([0, -1])
-        velocity['down'] = numpy.array([0, 1])
-        velocity['left'] = numpy.array([-1, 0])
-        velocity['right'] = numpy.array([1, 0])
+        velocity = {'up': numpy.array([0, -1]),
+                    'down': numpy.array([0, 1]),
+                    'left': numpy.array([-1, 0]),
+                    'right': numpy.array([1, 0])}
         return velocity
-
-
-def main():
-    logging.info("test xworld agent functions")
-    args = xworld_args.parser().parse_args()
-    agent = XWorldAgent(args)
-    for i in range(10):
-        action = agent.random_action()
-        logging.info(action)
-    logging.info("test xworld agent functions done")
-
-if __name__ == '__main__':
-    main()

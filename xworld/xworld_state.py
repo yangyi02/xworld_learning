@@ -1,7 +1,5 @@
 import numpy
 from . import xworld_map
-from . import xworld_args
-from . import xworld_agent
 import logging
 logging.basicConfig(format='[%(levelname)s %(asctime)s %(filename)s:%(lineno)s] %(message)s',
                     level=logging.INFO)
@@ -136,24 +134,3 @@ class XWorldState(object):
                 self.image = self.image[start_y:end_y, start_x:end_x, :]
         else:
             self.image = self.origin_image
-
-
-def main():
-    logging.info("test xworld state functions")
-    args = xworld_args.parser().parse_args()
-    agent = xworld_agent.XWorldAgent(args)
-    agent.name = 'robot_0'
-    map_config_files = ['map_examples/example1.json', 'map_examples/example2.json',
-                        'map_examples/example3.json', 'map_examples/example4.json',
-                        'map_examples/example5.json']
-    for map_config_file in map_config_files:
-        args.map_config = map_config_file
-        xworld_state = XWorldState(args)
-        xworld_state.reset(agent)
-        logging.info(xworld_state.xmap)
-        logging.info(xworld_state.inner_state)
-        logging.info(xworld_state.image)
-    logging.info("test xworld state functions done")
-
-if __name__ == '__main__':
-    main()

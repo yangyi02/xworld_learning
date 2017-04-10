@@ -46,13 +46,3 @@ def load_item_images(image_block_size=64, item_image_dir='images'):
 
 def is_out_border(location, width, height):
     return location[0] < 0 or location[0] >= width or location[1] < 0 or location[1] >= height
-
-
-def main():
-    direction_type()
-    parse_item_list()
-    load_item_images()
-    is_out_border(numpy.array([1, 2]), 3, 4)
-
-if __name__ == '__main__':
-    main()
