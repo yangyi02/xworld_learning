@@ -21,7 +21,7 @@ def main():
     logging.info(args.learn_start)
     logging.info(args.save_dir)
     logging.info(args.log_dir)
-    logging.info(args.init_model)
+    logging.info(args.init_model_path)
     logging.info(args.learning_rate)
     logging.info(args.max_episode_length)
     logging.info(args.train)
