@@ -3,8 +3,10 @@ import logging
 logging.basicConfig(format='[%(levelname)s %(asctime)s %(filename)s:%(lineno)s] %(message)s',
                             level=logging.INFO)
 
+
 def test(args, env, model):
     logging.info('testing')
+    env.seed(args.seed)
     model.load_state_dict(torch.load(args.init_model_path))
 
     if args.method == 'reinforce':
@@ -36,3 +38,4 @@ def test(args, env, model):
             logging.info('Episode {}\taverage cumulative reward: {:.2f}'.format(
                 i_episode, numpy.mean(numpy.asarray(cumulative_rewards))))
             cumulative_rewards = []
+

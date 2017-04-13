@@ -15,15 +15,14 @@ class XWorldAgent(object):
         In the 2d xworld, navigation is a discrete action with up, down, left, right.
         speak is a continuous action that generate words.
         """
-        self.seed = None
         self.name = 'robot_0'
         self.action_type = ['up', 'down', 'left', 'right']
         self.num_actions = len(self.action_type)
         self.velocity = self.get_velocity()
         # TODO: add random speak action
 
-    def seed(self, seed=None):
-        self.seed = seed
+    @staticmethod
+    def seed(seed=None):
         random.seed(seed)
 
     def random_action(self):

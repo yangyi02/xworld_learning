@@ -21,8 +21,8 @@ class XWorldMap(object):
         self.item_name_map = {}
         self.init_map_config(map_config_file)
 
-    def seed(self, seed=None):
-        self.seed = seed
+    @staticmethod
+    def seed(seed=None):
         random.seed(seed)
 
     def init_map_config(self, map_config_file):

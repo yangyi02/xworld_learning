@@ -22,8 +22,8 @@ class XWorldTeacher(object):
         self.cumulative_discount = 1.0
         self.done = False
 
-    def seed(self, seed=None):
-        self.seed = seed
+    @staticmethod
+    def seed(seed=None):
         random.seed(seed)
 
     def reset(self, state):
