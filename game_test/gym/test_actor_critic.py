@@ -24,10 +24,10 @@ def main():
     num_inputs = env.observation_space.shape[0]
     num_hidden = 128
     num_actions = env.action_space.n
-    model = actor_critic.Policy(num_inputs, num_hidden, num_actions)
+    model = actor_critic.Net(num_inputs, num_hidden, num_actions)
     model = model.cuda() if cuda.use_cuda() else model
     optimizer = optim.Adam(model.parameters(), lr=1e-2)
-    reinforcement_model = actor_critic.ActorCritic(args.gamma, model, optimizer)
+    solver = actor_critic.ActorCritic(args.gamma, model, optimizer)
 
     if args.train:
         logging.info('training')
@@ -36,23 +36,24 @@ def main():
         for i_episode in range(1000):
             state = env.reset()
             for t in range(10000):  # Don't infinite loop while learning
-                action = reinforcement_model.select_action(state)
+                action = solver.select_action(state)
                 state, reward, done, _ = env.step(action[0,0])
                 if args.render:
                     env.render()
-                reinforcement_model.rewards.append(reward)
+                solver.rewards.append(reward)
                 if done:
                     break
 
             running_reward = running_reward * 0.99 + t * 0.01
-            reinforcement_model.optimize()
             if i_episode % args.log_interval == 0:
                 logging.info('Episode {}\tLast length: {:5d}\tAverage length: {:.2f}'.format(
                     i_episode, t, running_reward))
-            if running_reward > 195:
+            if running_reward > 190:
                 logging.info("Solved! Running reward is now {} and "
                              "the last episode runs to {} time steps!".format(running_reward, t))
                 break
+
+            solver.optimize()
 
         with open('actor_critic_model.pth', 'wb') as handle:
             torch.save(model.state_dict(), handle)
@@ -63,7 +64,7 @@ def main():
         for i_episode in range(100):
             state = env.reset()
             for t in range(10000):  # Don't infinite loop while learning
-                action = reinforcement_model.select_action(state)
+                action = solver.select_action(state)
                 state, reward, done, _ = env.step(action[0,0])
                 if args.render:
                     env.render()
