@@ -12,17 +12,17 @@ logging.basicConfig(format='[%(levelname)s %(asctime)s %(filename)s:%(lineno)s] 
                     level=logging.INFO)
 
 
-class Policy(nn.Module):
+class Net(nn.Module):
     def __init__(self, num_inputs, hidden_size, num_actions):
-        super(Policy, self).__init__()
-        self.affine1 = nn.Linear(num_inputs, hidden_size)
-        self.action_head = nn.Linear(hidden_size, num_actions)
-        self.value_head = nn.Linear(hidden_size, 1)
+        super().__init__()
+        self.fc1 = nn.Linear(num_inputs, hidden_size)
+        self.fc_a = nn.Linear(hidden_size, num_actions)
+        self.fc_v = nn.Linear(hidden_size, 1)
 
     def forward(self, x):
-        x = F.relu(self.affine1(x))
-        action_scores = self.action_head(x)
-        state_values = self.value_head(x)
+        x = F.relu(self.fc1(x))
+        action_scores = self.fc_a(x)
+        state_values = self.fc_v(x)
         return F.softmax(action_scores), state_values
 
 
@@ -41,7 +41,10 @@ class AsyncActorCritic(object):
         self.rewards = []
 
     def select_action(self, state, exploration=None):
-        state = torch.from_numpy(state).float().unsqueeze(0)
+        if type(state) is numpy.ndarray:
+            state = cuda.from_numpy(state).unsqueeze(0)
+        else:
+            state = cuda.to_tensor(state).unsqueeze(0)
         probs, state_value = self.model(cuda.variable(state))
         action = probs.multinomial()
         self.saved_actions.append(SavedAction(action, state_value))

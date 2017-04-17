@@ -1,0 +1,25 @@
+{
+    "dimensions" : {
+        "height" : 5,
+        "width" : 5
+    },
+
+    "items" : {
+        "goal" : {
+            "number" : 2,
+            "instances" : {
+                "apple_0": [] 
+            }
+        },
+        "agent" : {
+            "number" : 1,
+            "instances" : {
+            }
+        },
+        "block" : {
+            "number" : 2,
+            "instances" : {
+            }
+        }
+    }
+}

@@ -12,3 +12,17 @@ def variable(data, *args, **kwargs):
     if use_cuda():
         var = var.cuda()
     return var
+
+
+def from_numpy(ndarray):
+    tensor = torch.from_numpy(ndarray).float()
+    if use_cuda():
+        tensor = tensor.cuda()
+    return tensor
+
+
+def to_tensor(array):
+    tensor = torch.Tensor(array).float()
+    if use_cuda():
+        tensor = tensor.cuda()
+    return tensor

@@ -16,7 +16,7 @@ logging.basicConfig(format='[%(levelname)s %(asctime)s %(filename)s:%(lineno)s] 
 def main():
     logging.info("test xworld learning functions")
     args = xworld_learning_args.parser().parse_args()
-    args.map_config = '../xworld/map_examples/example1.json'
+    args.map_config = '../../xworld/map_examples/example1.json'
     logging.info(args)
     env = xworld_navi_goal.XWorldNaviGoal(args)
     env.seed(args.seed)
@@ -26,7 +26,7 @@ def main():
     num_inputs = env.state.inner_state.size
     num_hidden = 128
     num_actions = env.agent.num_actions
-    model = reinforce.Policy(num_inputs, num_hidden, num_actions)
+    model = reinforce.Net(num_inputs, num_hidden, num_actions)
     model = model.cuda() if cuda.use_cuda() else model
     optimizer = optim.Adam(model.parameters(), lr=1e-2)
     reinforce_model = reinforce.Reinforce(args.gamma, model, optimizer)

@@ -11,15 +11,15 @@ logging.basicConfig(format='[%(levelname)s %(asctime)s %(filename)s:%(lineno)s] 
                     level=logging.INFO)
 
 
-class Policy(nn.Module):
+class Net(nn.Module):
     def __init__(self, num_inputs, hidden_size, num_actions):
-        super(Policy, self).__init__()
-        self.affine1 = nn.Linear(num_inputs, hidden_size)
-        self.affine2 = nn.Linear(hidden_size, num_actions)
+        super().__init__()
+        self.fc1 = nn.Linear(num_inputs, hidden_size)
+        self.fc2 = nn.Linear(hidden_size, num_actions)
 
     def forward(self, x):
-        x = F.relu(self.affine1(x))
-        action_scores = self.affine2(x)
+        x = F.relu(self.fc1(x))
+        action_scores = self.fc2(x)
         return F.softmax(action_scores)
 
 
@@ -36,7 +36,10 @@ class Reinforce(object):
         self.rewards = []
 
     def select_action(self, state, exploration=None):
-        state = torch.from_numpy(state).float().unsqueeze(0)
+        if type(state) is numpy.ndarray:
+            state = cuda.from_numpy(state).unsqueeze(0)
+        else:
+            state = cuda.to_tensor(state).unsqueeze(0)
         probs = self.model(cuda.variable(state))
         action = probs.multinomial()
         self.saved_actions.append(action)
@@ -44,16 +47,13 @@ class Reinforce(object):
 
     def optimize(self):
         R = 0
-        saved_actions = self.saved_actions
         rewards = []
         for r in self.rewards[::-1]:
             R = r + self.gamma * R
             rewards.insert(0, R)
-        rewards = torch.Tensor(rewards)
-        # logging.info(rewards)
+        rewards = cuda.to_tensor(rewards)
         if rewards.size()[0] > 1:
             rewards = (rewards - rewards.mean()) / (rewards.std() + numpy.finfo(numpy.float32).eps)
-        # logging.info(rewards)
         for action, r in zip(self.saved_actions, rewards):
             action.reinforce(r)
         self.optimizer.zero_grad()
