@@ -7,7 +7,7 @@ logging.basicConfig(format='[%(levelname)s %(asctime)s %(filename)s:%(lineno)s] 
 
 def main():
     logging.info('testing reinforce functions')
-    model = reinforce.Policy(4, 128, 2)
+    model = reinforce.Net(4, 128, 2)
     model = model.cuda() if cuda.use_cuda() else model
     reinforcement_model = reinforce.Reinforce(0.99, model)
     state = numpy.random.randn(4)

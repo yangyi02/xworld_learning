@@ -29,6 +29,8 @@ class XWorld(object):
         self.state.reset(self.agent)
         self.teacher.reset(self.state)
         self.num_step = 0
+        if self.args.show_frame:
+            self.display()
         return self.state, self.teacher
 
     def step(self, action):
@@ -54,10 +56,11 @@ class XWorld(object):
         Display xworld state as well as teacher's command, language and rewards
         """
         plt.ion()
+        plt.figure(1)
         start1 = time.time()
         plt.clf()
         start2 = time.time()
-        print('clf time: %.3f' % (start2 - start1))
+        # print('clf time: %.3f' % (start2 - start1))
         # plot image
         plt.subplot(2, 3, 1)
         plt.imshow(self.state.image)
@@ -73,27 +76,27 @@ class XWorld(object):
             plt.gca().add_patch(circle)
         plt.axis('scaled')
         start3 = time.time()
-        print('subplot 1 time: %.3f' % (start3 - start2))
+        # print('subplot 1 time: %.3f' % (start3 - start2))
         # plot inner state
         plt.subplot(2, 3, 4)
         plt.table(cellText=self.state.inner_state, bbox=[0, 0, 1, 1])
         plt.xticks([]), plt.yticks([])  # to hide tick values on X and Y axis
         plt.axis('off')
         start4 = time.time()
-        print('subplot inner state time: %.3f' % (start4 - start3))
+        # print('subplot inner state time: %.3f' % (start4 - start3))
         # plot complete image
         plt.subplot(2, 3, 2)
         plt.imshow(self.state.origin_image)
         plt.xticks([]), plt.yticks([])  # to hide tick values on X and Y axis
         start5 = time.time()
-        print('subplot complete image time: %.3f' % (start5 - start4))
+        # print('subplot complete image time: %.3f' % (start5 - start4))
         # plot complete inner state
         plt.subplot(2, 3, 5)
         plt.table(cellText=self.state.origin_inner_state, bbox=[0, 0, 1, 1])
         plt.xticks([]), plt.yticks([])  # to hide tick values on X and Y axis
         plt.axis('off')
         start6 = time.time()
-        print('subplot complete inner state time: %.3f' % (start6 - start5))
+        # print('subplot complete inner state time: %.3f' % (start6 - start5))
         # plot teacher's command, language and reward
         plt.subplot(2, 3, 3)
         teacher_command = 'Teacher command:\n    %s\n' % self.teacher.command
@@ -103,7 +106,7 @@ class XWorld(object):
         plt.xticks([]), plt.yticks([])  # to hide tick values on X and Y axis
         plt.axis('off')
         start7 = time.time()
-        print('subplot teacher command time: %.3f' % (start7 - start6))
+        # print('subplot teacher command time: %.3f' % (start7 - start6))
         # plot historical command, language, reward
         plt.subplot(2, 3, 6)
         cumulative_command = 'Cumulative commands:\n'
@@ -119,13 +122,12 @@ class XWorld(object):
         plt.xticks([]), plt.yticks([])  # to hide tick values on X and Y axis
         plt.axis('off')
         start8 = time.time()
-        print('subplot history command time: %.3f' % (start8 - start7))
+        # print('subplot history command time: %.3f' % (start8 - start7))
         # plot history language
         plt.show()
+        plt.pause(0.01)
         if self.args.pause_screen:
             # plt.ioff()
             input("PRESS ANY KEY TO CONTINUE.")
-        else:
-            plt.pause(0.01)
         start9 = time.time()
-        print('show time: %.3f' % (start9 - start8))
+        # print('show time: %.3f' % (start9 - start8))

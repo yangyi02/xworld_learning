@@ -4,3 +4,6 @@
 [submodule "learning/doom-net-pytorch"]
 	path = learning/doom-net-pytorch
 	url = https://github.com/akolishchak/doom-net-pytorch.git
+[submodule "learning/pytorch-rl"]
+	path = learning/pytorch-rl
+	url = https://github.com/jingweiz/pytorch-rl.git

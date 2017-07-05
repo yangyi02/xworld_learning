@@ -115,7 +115,7 @@ def test(rank, args, shared_model, optimizer):
 def main():
     args = xworld_learning_args.parser().parse_args()
     args.map_config = 'empty_ground.json'
-    args.learning_rate = 0.001
+    args.learning_rate = 0.0001
     args.keep_command = True
     args.init_model_path = os.path.join(args.save_dir, 'final.pth')
     logging.info(args)

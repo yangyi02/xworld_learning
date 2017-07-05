@@ -7,7 +7,7 @@ logging.basicConfig(format='[%(levelname)s %(asctime)s %(filename)s:%(lineno)s] 
 
 def main():
     logging.info('testing actor-critic functions')
-    model = async_actor_critic.Policy(4, 128, 2)
+    model = async_actor_critic.Net(4, 128, 2)
     model = model.cuda() if cuda.use_cuda() else model
     shared_model = model
     reinforcement_model = async_actor_critic.AsyncActorCritic(0.99, model, shared_model)
