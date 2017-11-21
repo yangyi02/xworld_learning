@@ -1,0 +1,11 @@
+[INFO 2017-07-05 16:00:43,835 main.py:82] Namespace(batch_size=64, discount_factor=0.99, ego_centric=False, gamma=0.99, gpu_id=1, image_block_size=64, init_model_path='./models/final.pth', keep_command=True, learn_start=0, learning_rate=0.001, log_dir='./log', log_interval=10, map_config='empty_ground.json', max_episode_length=100, method='actor_critic', num_games=100, num_processes=4, opt_method='adam', pause_screen=False, render=False, replay_memory_size=100000, save_dir='./models', save_interval=1000, seed=432, show_frame=True, single_word=False, teacher_type='NAVI_GOAL', test=True, train=False, use_gpu=False, visible_radius_unit=1)
+[INFO 2017-07-05 16:00:43,835 xworld_utils.py:18] loading item list
+[INFO 2017-07-05 16:00:43,836 xworld_utils.py:27] finish loading item list
+[INFO 2017-07-05 16:00:43,836 xworld_utils.py:32] loading item images
+[INFO 2017-07-05 16:00:43,960 xworld_utils.py:43] finish loading item images
+[INFO 2017-07-05 16:00:43,960 xworld_map.py:29] loading empty_ground.json
+[INFO 2017-07-05 16:00:43,961 xworld_map.py:45] finish loading empty_ground.json
+/usr/local/lib/python3.5/dist-packages/matplotlib/backend_bases.py:2445: MatplotlibDeprecationWarning: Using default event loop until function specific to this GUI is implemented
+  warnings.warn(str, mplDeprecation)
+[INFO 2017-07-05 16:00:46,817 main.py:110] testing
+PRESS ANY KEY TO CONTINUE.PRESS ANY KEY TO CONTINUE.PRESS ANY KEY TO CONTINUE.PRESS ANY KEY TO CONTINUE.PRESS ANY KEY TO CONTINUE.
