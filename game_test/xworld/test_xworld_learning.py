@@ -43,5 +43,6 @@ def main():
         reinforce_model.optimize()
     logging.info("test xworld learning functions done")
 
+
 if __name__ == '__main__':
     main()

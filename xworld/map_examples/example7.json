@@ -1,0 +1,61 @@
+{
+    "dimensions" : {
+        "height" : 10,
+        "width" : 10
+    },
+    
+    "items" : {
+        "goal" : {
+            "number" : 7,
+            "instances" : {
+                "apple_0" : [1, 6],
+                "apple_1" : [8, 5],
+                "banana_0" : [3, 4],
+                "fig_0" : [5, 7],
+                "avocado_0": [7, 0],
+                "blueberry": [6, 2],
+                "cherry_0": [8, 9]
+            }
+        },
+
+        "block" : {
+            "number" : 10,
+            "instances" : {
+                "brick_0" : [1, 0],
+                "brick_1" : [1, 1],
+                "brick_2" : [1, 2],
+                "brick_3" : [4, 4],
+                "brick_4" : [5, 4],
+                "brick_5" : [7, 3],
+                "brick_6" : [8, 3],
+                "brick_7" : [5, 6],
+                "brick_8" : [3, 8],
+                "brick_9" : [2, 8]
+            }
+        },
+
+        "agent" : {
+            "number" : 1,
+            "instances" : {
+                "robot_0" : [0, 0]
+            }
+        },
+        
+        "dummy" : {
+            "number" : 0,
+            "instances" : {
+            }
+        },
+
+        "river" : {
+            "number" : 5,
+            "instances" : {
+                "river_0" : [0, 5],
+                "river_1" : [1, 5],
+                "river_2" : [4, 1],
+                "river_3" : [7, 4],
+                "river_4" : [9, 3]
+            }
+        }
+    }
+}

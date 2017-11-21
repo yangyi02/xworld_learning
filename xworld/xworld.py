@@ -5,6 +5,7 @@ import cv2
 from . import xworld_agent, xworld_state, xworld_teacher
 import time
 import logging
+
 logging.basicConfig(format='[%(levelname)s %(asctime)s %(filename)s:%(lineno)s] %(message)s',
                     level=logging.INFO)
 
@@ -13,6 +14,7 @@ class XWorld(object):
     """
     XWorld interface for xworld robot learning
     """
+
     def __init__(self, args):
         self.args = args
         self.state = xworld_state.XWorldState(args)
@@ -70,7 +72,7 @@ class XWorld(object):
             center_x = self.state.image.shape[1] / 2
             center_y = self.state.image.shape[0] / 2
             radius = min(center_x, center_y) / 2
-            line_width = radius/10
+            line_width = radius / 10
             circle = plt.Circle((center_y, center_x), radius=radius, color='g', fill=False,
                                 linewidth=line_width)
             plt.gca().add_patch(circle)
@@ -131,3 +133,25 @@ class XWorld(object):
             input("PRESS ANY KEY TO CONTINUE.")
         start9 = time.time()
         # print('show time: %.3f' % (start9 - start8))
+
+    def view_map(self):
+        """
+        Display xworld map
+        """
+        plt.ion()
+        plt.figure(1)
+        plt.clf()
+        # plot complete image
+        plt.subplot(1, 2, 1)
+        plt.imshow(self.state.origin_image)
+        plt.xticks([]), plt.yticks([])  # to hide tick values on X and Y axis
+        # plot complete inner state
+        plt.subplot(1, 2, 2)
+        plt.table(cellText=self.state.origin_inner_state, bbox=[0, 0, 1, 1])
+        plt.xticks([]), plt.yticks([])  # to hide tick values on X and Y axis
+        plt.axis('off')
+        plt.axis('scaled')
+        plt.show()
+        plt.pause(0.01)
+        # plt.ioff()
+        input("PRESS ANY KEY TO CONTINUE.")

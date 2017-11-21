@@ -26,4 +26,6 @@ def parser():
                             help='whether pause screen at every step')
     arg_parser.add_argument('--discount_factor', type=float, default=0.99,
                             help='discount factor in game')
+    arg_parser.add_argument('--view_map', action='store_true',
+                            help='view current map')
     return arg_parser

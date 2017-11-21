@@ -23,14 +23,14 @@ def train(rank, args, shared_model, optimizer):
     if cuda.use_cuda():
         torch.cuda.manual_seed_all(args.seed + rank)
 
-    xworld = xworld_navi_goal.XWorldNaviGoal(args)
-    xworld.seed(args.seed + rank)
+    env = xworld_navi_goal.XWorldNaviGoal(args)
+    env.seed(args.seed + rank)
 
-    xworld.reset()
-    (height, width, channel) = xworld.state.onehot_state.shape
+    env.reset()
+    (height, width, channel) = env.state.onehot_state.shape
     num_hidden1 = 1
     num_hidden2 = 4
-    num_actions = xworld.agent.num_actions
+    num_actions = env.agent.num_actions
     model = networks.Network(height, width, channel, num_hidden1, num_hidden2, num_actions)
     model = model.cuda() if cuda.use_cuda() else model
 
@@ -39,14 +39,14 @@ def train(rank, args, shared_model, optimizer):
     cumulative_rewards = []
     for i_episode in range(args.num_games):
         model.load_state_dict(shared_model.state_dict())
-        state, teacher = xworld.reset()
+        state, teacher = env.reset()
         cumulative_reward = []
         discount = 1.0
         for t in range(args.max_episode_length):  # Don't infinite loop while learning
             state_input = state.onehot_state.swapaxes(0, 2).swapaxes(1, 2)
             command_id = state.xmap.item_class_id[teacher.command.split(' ')[-1]]
             action = solver.select_action(state_input, command_id)
-            next_state, teacher, done = xworld.step(action[0, 0])
+            next_state, teacher, done = env.step(action[0, 0])
             reward = teacher.reward
             solver.rewards.append(reward)
             cumulative_reward.append(reward * discount)
@@ -75,14 +75,14 @@ def test(rank, args, shared_model, optimizer):
     if cuda.use_cuda():
         torch.cuda.manual_seed_all(args.seed + rank)
 
-    xworld = xworld_navi_goal.XWorldNaviGoal(args)
-    xworld.seed(args.seed + rank)
+    env = xworld_navi_goal.XWorldNaviGoal(args)
+    env.seed(args.seed + rank)
 
-    xworld.reset()
-    (height, width, channel) = xworld.state.onehot_state.shape
+    env.reset()
+    (height, width, channel) = env.state.onehot_state.shape
     num_hidden1 = 1
     num_hidden2 = 4
-    num_actions = xworld.agent.num_actions
+    num_actions = env.agent.num_actions
     model = networks.Network(height, width, channel, num_hidden1, num_hidden2, num_actions)
     model = model.cuda() if cuda.use_cuda() else model
 
@@ -91,14 +91,14 @@ def test(rank, args, shared_model, optimizer):
     cumulative_rewards = []
     for i_episode in range(args.num_games):
         model.load_state_dict(shared_model.state_dict())
-        state, teacher = xworld.reset()
+        state, teacher = env.reset()
         cumulative_reward = []
         discount = 1.0
         for t in range(args.max_episode_length):  # Don't infinite loop while learning
             state_input = state.onehot_state.swapaxes(0, 2).swapaxes(1, 2)
             command_id = state.xmap.item_class_id[teacher.command.split(' ')[-1]]
             action = solver.select_action(state_input, command_id)
-            next_state, teacher, done = xworld.step(action[0, 0])
+            next_state, teacher, done = env.step(action[0, 0])
             reward = teacher.reward
             solver.rewards.append(reward)
             cumulative_reward.append(reward * discount)
@@ -119,17 +119,17 @@ def main():
     args.keep_command = True
     args.init_model_path = os.path.join(args.save_dir, 'final.pth')
     logging.info(args)
-    xworld = xworld_navi_goal.XWorldNaviGoal(args)
-    xworld.seed(args.seed)
+    env = xworld_navi_goal.XWorldNaviGoal(args)
+    env.seed(args.seed)
     torch.manual_seed(args.seed)
     if cuda.use_cuda():
         torch.cuda.manual_seed_all(args.seed)
 
-    xworld.reset()
-    (height, width, channel) = xworld.state.onehot_state.shape
+    env.reset()
+    (height, width, channel) = env.state.onehot_state.shape
     num_hidden1 = 1
     num_hidden2 = 4
-    num_actions = xworld.agent.num_actions
+    num_actions = env.agent.num_actions
     model = networks.Network(height, width, channel, num_hidden1, num_hidden2, num_actions)
     model = model.cuda() if cuda.use_cuda() else model
     model.share_memory()
