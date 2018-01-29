@@ -31,5 +31,8 @@
   },
   "river" : {
     "river" : 1
+  },
+  "target" : {
+    "target" : 1
   }
 }

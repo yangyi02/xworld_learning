@@ -56,6 +56,8 @@ class XWorldItem(object):
             return True
         elif self.item_type == 'box' and next_item_type == 'river':
             return True
+        elif self.item_type == 'box' and next_item_type == 'target':
+            return True
         else:
             return False
 
@@ -68,6 +70,15 @@ class XWorldItem(object):
         elif self.item_type == 'box' and next_item_type == 'river':
             return True
         elif self.item_type == 'river' and next_item_type == 'box':
+            return True
+        else:
+            return False
+
+    def to_be_merged(self, next_item_type='empty'):
+        """
+        When two items are on the same location, they may get merged
+        """
+        if self.item_type == 'box' and next_item_type == 'target':
             return True
         else:
             return False
