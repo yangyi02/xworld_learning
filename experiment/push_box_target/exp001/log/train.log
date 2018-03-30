@@ -1,0 +1,176 @@
+[INFO 2018-01-11 02:39:15,522 main_a3c.py:118] Namespace(batch_size=64, discount_factor=0.99, ego_centric=False, gamma=0.99, gpu_id=1, image_block_size=64, init_model_path='./models/final.pth', keep_command=False, learn_start=0, learning_rate=0.0001, log_dir='./log', log_interval=10, map_config='empty_ground.json', max_episode_length=100, method='actor_critic', num_games=10000, num_processes=4, opt_method='adam', pause_screen=False, render=False, replay_memory_size=100000, save_dir='./models', save_interval=1000, seed=432, show_frame=False, single_word=False, teacher_type='NAVI_GOAL', test=False, train=True, use_gpu=False, view_map=False, visible_radius_unit=1)
+[INFO 2018-01-11 02:39:15,522 xworld_utils.py:18] loading item list
+[INFO 2018-01-11 02:39:15,523 xworld_utils.py:27] finish loading item list
+[INFO 2018-01-11 02:39:15,523 xworld_utils.py:32] loading item images
+[INFO 2018-01-11 02:39:15,595 xworld_utils.py:43] finish loading item images
+[INFO 2018-01-11 02:39:15,595 xworld_map.py:29] loading empty_ground.json
+[INFO 2018-01-11 02:39:15,595 xworld_map.py:45] finish loading empty_ground.json
+[INFO 2018-01-11 02:39:17,416 main_a3c.py:142] training
+[INFO 2018-01-11 02:39:20,059 xworld_utils.py:18] loading item list
+[INFO 2018-01-11 02:39:20,059 xworld_utils.py:27] finish loading item list
+[INFO 2018-01-11 02:39:20,059 xworld_utils.py:32] loading item images
+[INFO 2018-01-11 02:39:20,133 xworld_utils.py:43] finish loading item images
+[INFO 2018-01-11 02:39:20,133 xworld_map.py:29] loading empty_ground.json
+[INFO 2018-01-11 02:39:20,134 xworld_map.py:45] finish loading empty_ground.json
+[INFO 2018-01-11 02:39:20,396 xworld_utils.py:18] loading item list
+[INFO 2018-01-11 02:39:20,396 xworld_utils.py:27] finish loading item list
+[INFO 2018-01-11 02:39:20,396 xworld_utils.py:32] loading item images
+[INFO 2018-01-11 02:39:20,470 xworld_utils.py:43] finish loading item images
+[INFO 2018-01-11 02:39:20,471 xworld_map.py:29] loading empty_ground.json
+[INFO 2018-01-11 02:39:20,471 xworld_map.py:45] finish loading empty_ground.json
+[INFO 2018-01-11 02:39:20,547 xworld_utils.py:18] loading item list
+[INFO 2018-01-11 02:39:20,548 xworld_utils.py:27] finish loading item list
+[INFO 2018-01-11 02:39:20,548 xworld_utils.py:32] loading item images
+[INFO 2018-01-11 02:39:20,670 xworld_utils.py:43] finish loading item images
+[INFO 2018-01-11 02:39:20,670 xworld_map.py:29] loading empty_ground.json
+[INFO 2018-01-11 02:39:20,671 xworld_map.py:45] finish loading empty_ground.json
+[INFO 2018-01-11 02:39:20,831 xworld_utils.py:18] loading item list
+[INFO 2018-01-11 02:39:20,832 xworld_utils.py:27] finish loading item list
+[INFO 2018-01-11 02:39:20,832 xworld_utils.py:32] loading item images
+[INFO 2018-01-11 02:39:20,959 xworld_utils.py:43] finish loading item images
+[INFO 2018-01-11 02:39:20,959 xworld_map.py:29] loading empty_ground.json
+[INFO 2018-01-11 02:39:20,959 xworld_map.py:45] finish loading empty_ground.json
+[INFO 2018-01-11 02:39:21,029 main_a3c.py:58] Episode 0	average cumulative reward: -9.11
+[INFO 2018-01-11 02:39:21,030 main_a3c.py:63] Episode 0	saving model: 00000.pth
+Process SpawnProcess-1:
+Traceback (most recent call last):
+  File "/usr/lib/python3.5/multiprocessing/process.py", line 249, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.5/multiprocessing/process.py", line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/yi/code/xworld_learning/experiment/push_box_target/exp001/main_a3c.py", line 66, in train
+    solver.optimize()
+  File "/home/yi/code/xworld_learning/learning/async_actor_critic.py", line 65, in optimize
+    action.reinforce(r - value.data[0,0])
+  File "/usr/local/lib/python3.5/dist-packages/torch/autograd/variable.py", line 232, in reinforce
+    """))
+RuntimeError: reinforce() was removed.
+Use torch.distributions instead.
+See http://pytorch.org/docs/master/distributions.html
+
+Instead of:
+
+probs = policy_network(state)
+action = probs.multinomial()
+next_state, reward = env.step(action)
+action.reinforce(reward)
+action.backward()
+
+Use:
+
+probs = policy_network(state)
+# NOTE: categorical is equivalent to what used to be called multinomial
+m = torch.distributions.Categorical(probs)
+action = m.sample()
+next_state, reward = env.step(action)
+loss = -m.log_prob(action) * reward
+loss.backward()
+
+[INFO 2018-01-11 02:39:21,417 main_a3c.py:58] Episode 0	average cumulative reward: -11.52
+[INFO 2018-01-11 02:39:21,418 main_a3c.py:63] Episode 0	saving model: 00000.pth
+Process SpawnProcess-4:
+Traceback (most recent call last):
+  File "/usr/lib/python3.5/multiprocessing/process.py", line 249, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.5/multiprocessing/process.py", line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/yi/code/xworld_learning/experiment/push_box_target/exp001/main_a3c.py", line 66, in train
+    solver.optimize()
+  File "/home/yi/code/xworld_learning/learning/async_actor_critic.py", line 65, in optimize
+    action.reinforce(r - value.data[0,0])
+  File "/usr/local/lib/python3.5/dist-packages/torch/autograd/variable.py", line 232, in reinforce
+    """))
+RuntimeError: reinforce() was removed.
+Use torch.distributions instead.
+See http://pytorch.org/docs/master/distributions.html
+
+Instead of:
+
+probs = policy_network(state)
+action = probs.multinomial()
+next_state, reward = env.step(action)
+action.reinforce(reward)
+action.backward()
+
+Use:
+
+probs = policy_network(state)
+# NOTE: categorical is equivalent to what used to be called multinomial
+m = torch.distributions.Categorical(probs)
+action = m.sample()
+next_state, reward = env.step(action)
+loss = -m.log_prob(action) * reward
+loss.backward()
+
+[INFO 2018-01-11 02:39:21,834 main_a3c.py:58] Episode 0	average cumulative reward: -10.47
+[INFO 2018-01-11 02:39:21,834 main_a3c.py:63] Episode 0	saving model: 00000.pth
+Process SpawnProcess-3:
+Traceback (most recent call last):
+  File "/usr/lib/python3.5/multiprocessing/process.py", line 249, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.5/multiprocessing/process.py", line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/yi/code/xworld_learning/experiment/push_box_target/exp001/main_a3c.py", line 66, in train
+    solver.optimize()
+  File "/home/yi/code/xworld_learning/learning/async_actor_critic.py", line 65, in optimize
+    action.reinforce(r - value.data[0,0])
+  File "/usr/local/lib/python3.5/dist-packages/torch/autograd/variable.py", line 232, in reinforce
+    """))
+RuntimeError: reinforce() was removed.
+Use torch.distributions instead.
+See http://pytorch.org/docs/master/distributions.html
+
+Instead of:
+
+probs = policy_network(state)
+action = probs.multinomial()
+next_state, reward = env.step(action)
+action.reinforce(reward)
+action.backward()
+
+Use:
+
+probs = policy_network(state)
+# NOTE: categorical is equivalent to what used to be called multinomial
+m = torch.distributions.Categorical(probs)
+action = m.sample()
+next_state, reward = env.step(action)
+loss = -m.log_prob(action) * reward
+loss.backward()
+
+[INFO 2018-01-11 02:39:22,008 main_a3c.py:58] Episode 0	average cumulative reward: -9.03
+[INFO 2018-01-11 02:39:22,009 main_a3c.py:63] Episode 0	saving model: 00000.pth
+Process SpawnProcess-2:
+Traceback (most recent call last):
+  File "/usr/lib/python3.5/multiprocessing/process.py", line 249, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.5/multiprocessing/process.py", line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/yi/code/xworld_learning/experiment/push_box_target/exp001/main_a3c.py", line 66, in train
+    solver.optimize()
+  File "/home/yi/code/xworld_learning/learning/async_actor_critic.py", line 65, in optimize
+    action.reinforce(r - value.data[0,0])
+  File "/usr/local/lib/python3.5/dist-packages/torch/autograd/variable.py", line 232, in reinforce
+    """))
+RuntimeError: reinforce() was removed.
+Use torch.distributions instead.
+See http://pytorch.org/docs/master/distributions.html
+
+Instead of:
+
+probs = policy_network(state)
+action = probs.multinomial()
+next_state, reward = env.step(action)
+action.reinforce(reward)
+action.backward()
+
+Use:
+
+probs = policy_network(state)
+# NOTE: categorical is equivalent to what used to be called multinomial
+m = torch.distributions.Categorical(probs)
+action = m.sample()
+next_state, reward = env.step(action)
+loss = -m.log_prob(action) * reward
+loss.backward()
+

@@ -48,5 +48,7 @@ def parser():
                             help='save model intervals (default: 1000)')
     arg_parser.add_argument('--num_processes', type=int, default=4,
                             help='how many training processes to use (default: 4)')
+    arg_parser.add_argument('--tensorboard_path', default='',
+                            help='tensorboard path that stores tensorboard log history (default: )')
 
     return arg_parser

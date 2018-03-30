@@ -1,0 +1,24 @@
+{
+    "dimensions" : {
+        "height" : 5,
+        "width" : 5
+    },
+
+    "items" : {
+        "box" : {
+            "number" : 1,
+            "instances" : {
+            }
+        },
+        "agent" : {
+            "number" : 1,
+            "instances" : {
+            }
+        },
+        "target" : {
+            "number" : 1,
+            "instances" : {
+            }
+        }
+    }
+}

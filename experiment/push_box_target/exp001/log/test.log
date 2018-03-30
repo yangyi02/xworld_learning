@@ -1,0 +1,20 @@
+[INFO 2018-01-11 02:39:38,699 main_a3c.py:118] Namespace(batch_size=64, discount_factor=0.99, ego_centric=False, gamma=0.99, gpu_id=1, image_block_size=64, init_model_path='./models/final.pth', keep_command=False, learn_start=0, learning_rate=0.0001, log_dir='./log', log_interval=10, map_config='empty_ground.json', max_episode_length=100, method='actor_critic', num_games=10000, num_processes=4, opt_method='adam', pause_screen=False, render=False, replay_memory_size=100000, save_dir='./models', save_interval=1000, seed=432, show_frame=True, single_word=False, teacher_type='NAVI_GOAL', test=True, train=False, use_gpu=False, view_map=False, visible_radius_unit=1)
+[INFO 2018-01-11 02:39:38,699 xworld_utils.py:18] loading item list
+[INFO 2018-01-11 02:39:38,700 xworld_utils.py:27] finish loading item list
+[INFO 2018-01-11 02:39:38,700 xworld_utils.py:32] loading item images
+[INFO 2018-01-11 02:39:38,772 xworld_utils.py:43] finish loading item images
+[INFO 2018-01-11 02:39:38,772 xworld_map.py:29] loading empty_ground.json
+[INFO 2018-01-11 02:39:38,773 xworld_map.py:45] finish loading empty_ground.json
+/usr/local/lib/python3.5/dist-packages/matplotlib/backend_bases.py:2453: MatplotlibDeprecationWarning: Using default event loop until function specific to this GUI is implemented
+  warnings.warn(str, mplDeprecation)
+[INFO 2018-01-11 02:39:41,345 main_a3c.py:151] testing
+[INFO 2018-01-11 02:39:43,652 xworld_utils.py:18] loading item list
+[INFO 2018-01-11 02:39:43,652 xworld_utils.py:27] finish loading item list
+[INFO 2018-01-11 02:39:43,652 xworld_utils.py:32] loading item images
+[INFO 2018-01-11 02:39:43,723 xworld_utils.py:43] finish loading item images
+[INFO 2018-01-11 02:39:43,723 xworld_map.py:29] loading empty_ground.json
+[INFO 2018-01-11 02:39:43,723 xworld_map.py:45] finish loading empty_ground.json
+invalid command name "140543139911624idle_draw"
+    while executing
+"140543139911624idle_draw"
+    ("after" script)
